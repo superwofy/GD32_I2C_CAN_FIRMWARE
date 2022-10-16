@@ -10,7 +10,7 @@
     <aExt>*.s*; *.src; *.a*</aExt>
     <oExt>*.obj; *.o</oExt>
     <lExt>*.lib</lExt>
-    <tExt>*.txt; *.h; *.inc</tExt>
+    <tExt>*.txt; *.h; *.inc; *.md</tExt>
     <pExt>*.plm</pExt>
     <CppX>*.cpp</CppX>
     <nMigrate>0</nMigrate>
@@ -207,7 +207,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\CMSIS\GD\GD32C10x\Source\system_gd32c10x.c</PathWithFileName>
+      <PathWithFileName>.\CMSIS\GD\GD32C10x\Source\system_gd32c10x.c</PathWithFileName>
       <FilenameWithoutPath>system_gd32c10x.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -227,7 +227,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Startup\startup_gd32c10x.s</PathWithFileName>
+      <PathWithFileName>.\Startup\startup_gd32c10x.s</PathWithFileName>
       <FilenameWithoutPath>startup_gd32c10x.s</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -247,7 +247,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\User\main.c</PathWithFileName>
+      <PathWithFileName>.\User\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -259,7 +259,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Utilities\gd32c10x_eval.c</PathWithFileName>
+      <PathWithFileName>.\Utilities\gd32c10x_eval.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_eval.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -271,7 +271,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\User\gd32c10x_it.c</PathWithFileName>
+      <PathWithFileName>.\User\gd32c10x_it.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_it.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -283,7 +283,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\User\systick.c</PathWithFileName>
+      <PathWithFileName>.\User\systick.c</PathWithFileName>
       <FilenameWithoutPath>systick.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -295,7 +295,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\User\lgi_basic.c</PathWithFileName>
+      <PathWithFileName>.\User\lgi_basic.c</PathWithFileName>
       <FilenameWithoutPath>lgi_basic.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -303,7 +303,7 @@
   </Group>
 
   <Group>
-    <GroupName>New Group</GroupName>
+    <GroupName>GD-Firmware</GroupName>
     <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
@@ -315,7 +315,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_adc.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_adc.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_adc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -327,7 +327,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_bkp.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_bkp.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_bkp.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -339,7 +339,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_can.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_can.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_can.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -351,7 +351,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_crc.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_crc.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_crc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -363,7 +363,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_ctc.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_ctc.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_ctc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -375,7 +375,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_dac.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_dac.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_dac.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -387,7 +387,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_dbg.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_dbg.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_dbg.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -399,7 +399,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_dma.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_dma.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_dma.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -411,7 +411,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_exmc.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_exmc.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_exmc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -423,7 +423,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_exti.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_exti.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_exti.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -435,7 +435,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_fmc.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_fmc.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_fmc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -447,7 +447,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_fwdgt.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_fwdgt.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_fwdgt.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -459,7 +459,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_gpio.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_gpio.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_gpio.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -471,7 +471,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_i2c.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_i2c.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_i2c.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -483,7 +483,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_misc.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_misc.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_misc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -495,7 +495,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_pmu.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_pmu.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_pmu.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -507,7 +507,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_rcu.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_rcu.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_rcu.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -519,7 +519,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_rtc.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_rtc.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_rtc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -531,7 +531,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_spi.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_spi.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_spi.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -543,7 +543,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_timer.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_timer.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_timer.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -555,7 +555,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_usart.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_usart.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_usart.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -567,7 +567,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Library\Source\gd32c10x_wwdgt.c</PathWithFileName>
+      <PathWithFileName>.\Library\Source\gd32c10x_wwdgt.c</PathWithFileName>
       <FilenameWithoutPath>gd32c10x_wwdgt.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

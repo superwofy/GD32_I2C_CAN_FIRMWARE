@@ -604,12 +604,12 @@ ARM Macro Assembler    Page 10
   379 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=.\objects\startup_gd32c10x.d -o.\objects\startup_gd32c10x.o -I.
-\RTE\_Target_1 -IC:\Keil_v5\ARM\PACK\GigaDevice\GD32C10x_DFP\1.0.0\Device\Inclu
-de -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --predefine="
-__UVISION_VERSION SETA 526" --predefine="GD32C10x SETA 1" --list=.\listings\sta
-rtup_gd32c10x.lst ..\Startup\startup_gd32c10x.s
+Command Line: --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=interwor
+k --depend=.\objects\startup_gd32c10x.d -o.\objects\startup_gd32c10x.o -IC:\Kei
+l_v5\Packs\GigaDevice\GD32C10x_DFP\1.0.0\Device\Include --predefine="__EVAL SET
+A 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 536" -
+-predefine="GD32C10x SETA 1" --list=.\listings\startup_gd32c10x.lst Startup\sta
+rtup_gd32c10x.s
 
 
 
@@ -620,7 +620,7 @@ STACK 00000000
 
 Symbol: STACK
    Definitions
-      At line 42 in file ..\Startup\startup_gd32c10x.s
+      At line 42 in file Startup\startup_gd32c10x.s
    Uses
       None
 Comment: STACK unused
@@ -628,7 +628,7 @@ Stack_Mem 00000000
 
 Symbol: Stack_Mem
    Definitions
-      At line 43 in file ..\Startup\startup_gd32c10x.s
+      At line 43 in file Startup\startup_gd32c10x.s
    Uses
       None
 Comment: Stack_Mem unused
@@ -636,10 +636,10 @@ __initial_sp 00000400
 
 Symbol: __initial_sp
    Definitions
-      At line 44 in file ..\Startup\startup_gd32c10x.s
+      At line 44 in file Startup\startup_gd32c10x.s
    Uses
-      At line 67 in file ..\Startup\startup_gd32c10x.s
-      At line 358 in file ..\Startup\startup_gd32c10x.s
+      At line 67 in file Startup\startup_gd32c10x.s
+      At line 358 in file Startup\startup_gd32c10x.s
 
 3 symbols
 
@@ -652,7 +652,7 @@ HEAP 00000000
 
 Symbol: HEAP
    Definitions
-      At line 53 in file ..\Startup\startup_gd32c10x.s
+      At line 53 in file Startup\startup_gd32c10x.s
    Uses
       None
 Comment: HEAP unused
@@ -660,7 +660,7 @@ Heap_Mem 00000000
 
 Symbol: Heap_Mem
    Definitions
-      At line 55 in file ..\Startup\startup_gd32c10x.s
+      At line 55 in file Startup\startup_gd32c10x.s
    Uses
       None
 Comment: Heap_Mem unused
@@ -668,17 +668,17 @@ __heap_base 00000000
 
 Symbol: __heap_base
    Definitions
-      At line 54 in file ..\Startup\startup_gd32c10x.s
+      At line 54 in file Startup\startup_gd32c10x.s
    Uses
-      At line 359 in file ..\Startup\startup_gd32c10x.s
+      At line 359 in file Startup\startup_gd32c10x.s
 Comment: __heap_base used once
 __heap_limit 00000400
 
 Symbol: __heap_limit
    Definitions
-      At line 56 in file ..\Startup\startup_gd32c10x.s
+      At line 56 in file Startup\startup_gd32c10x.s
    Uses
-      At line 360 in file ..\Startup\startup_gd32c10x.s
+      At line 360 in file Startup\startup_gd32c10x.s
 Comment: __heap_limit used once
 4 symbols
 
@@ -691,7 +691,7 @@ RESET 00000000
 
 Symbol: RESET
    Definitions
-      At line 62 in file ..\Startup\startup_gd32c10x.s
+      At line 62 in file Startup\startup_gd32c10x.s
    Uses
       None
 Comment: RESET unused
@@ -699,19 +699,19 @@ __Vectors 00000000
 
 Symbol: __Vectors
    Definitions
-      At line 67 in file ..\Startup\startup_gd32c10x.s
+      At line 67 in file Startup\startup_gd32c10x.s
    Uses
-      At line 63 in file ..\Startup\startup_gd32c10x.s
-      At line 156 in file ..\Startup\startup_gd32c10x.s
+      At line 63 in file Startup\startup_gd32c10x.s
+      At line 156 in file Startup\startup_gd32c10x.s
 
 __Vectors_End 00000150
 
 Symbol: __Vectors_End
    Definitions
-      At line 154 in file ..\Startup\startup_gd32c10x.s
+      At line 154 in file Startup\startup_gd32c10x.s
    Uses
-      At line 64 in file ..\Startup\startup_gd32c10x.s
-      At line 156 in file ..\Startup\startup_gd32c10x.s
+      At line 64 in file Startup\startup_gd32c10x.s
+      At line 156 in file Startup\startup_gd32c10x.s
 
 3 symbols
 
@@ -724,7 +724,7 @@ Relocatable symbols
 
 Symbol: .text
    Definitions
-      At line 158 in file ..\Startup\startup_gd32c10x.s
+      At line 158 in file Startup\startup_gd32c10x.s
    Uses
       None
 Comment: .text unused
@@ -732,52 +732,52 @@ ADC0_1_IRQHandler 0000001A
 
 Symbol: ADC0_1_IRQHandler
    Definitions
-      At line 302 in file ..\Startup\startup_gd32c10x.s
+      At line 302 in file Startup\startup_gd32c10x.s
    Uses
-      At line 103 in file ..\Startup\startup_gd32c10x.s
-      At line 236 in file ..\Startup\startup_gd32c10x.s
+      At line 103 in file Startup\startup_gd32c10x.s
+      At line 236 in file Startup\startup_gd32c10x.s
 
 BusFault_Handler 0000000E
 
 Symbol: BusFault_Handler
    Definitions
-      At line 187 in file ..\Startup\startup_gd32c10x.s
+      At line 187 in file Startup\startup_gd32c10x.s
    Uses
-      At line 72 in file ..\Startup\startup_gd32c10x.s
-      At line 188 in file ..\Startup\startup_gd32c10x.s
+      At line 72 in file Startup\startup_gd32c10x.s
+      At line 188 in file Startup\startup_gd32c10x.s
 
 CAN0_EWMC_IRQHandler 0000001A
 
 Symbol: CAN0_EWMC_IRQHandler
    Definitions
-      At line 306 in file ..\Startup\startup_gd32c10x.s
+      At line 306 in file Startup\startup_gd32c10x.s
    Uses
-      At line 107 in file ..\Startup\startup_gd32c10x.s
-      At line 240 in file ..\Startup\startup_gd32c10x.s
+      At line 107 in file Startup\startup_gd32c10x.s
+      At line 240 in file Startup\startup_gd32c10x.s
 
 CAN0_RX0_IRQHandler 0000001A
 
 Symbol: CAN0_RX0_IRQHandler
    Definitions
-      At line 304 in file ..\Startup\startup_gd32c10x.s
+      At line 304 in file Startup\startup_gd32c10x.s
    Uses
-      At line 105 in file ..\Startup\startup_gd32c10x.s
-      At line 238 in file ..\Startup\startup_gd32c10x.s
+      At line 105 in file Startup\startup_gd32c10x.s
+      At line 238 in file Startup\startup_gd32c10x.s
 
 CAN0_RX1_IRQHandler 0000001A
 
 Symbol: CAN0_RX1_IRQHandler
    Definitions
-      At line 305 in file ..\Startup\startup_gd32c10x.s
+      At line 305 in file Startup\startup_gd32c10x.s
    Uses
-      At line 106 in file ..\Startup\startup_gd32c10x.s
-      At line 239 in file ..\Startup\startup_gd32c10x.s
+      At line 106 in file Startup\startup_gd32c10x.s
+      At line 239 in file Startup\startup_gd32c10x.s
 
 CAN0_TX_IRQHandler 0000001A
 
 Symbol: CAN0_TX_IRQHandler
    Definitions
-      At line 303 in file ..\Startup\startup_gd32c10x.s
+      At line 303 in file Startup\startup_gd32c10x.s
    Uses
 
 
@@ -785,62 +785,62 @@ Symbol: CAN0_TX_IRQHandler
 ARM Macro Assembler    Page 2 Alphabetic symbol ordering
 Relocatable symbols
 
-      At line 104 in file ..\Startup\startup_gd32c10x.s
-      At line 237 in file ..\Startup\startup_gd32c10x.s
+      At line 104 in file Startup\startup_gd32c10x.s
+      At line 237 in file Startup\startup_gd32c10x.s
 
 CAN1_EWMC_IRQHandler 0000001A
 
 Symbol: CAN1_EWMC_IRQHandler
    Definitions
-      At line 346 in file ..\Startup\startup_gd32c10x.s
+      At line 346 in file Startup\startup_gd32c10x.s
    Uses
-      At line 151 in file ..\Startup\startup_gd32c10x.s
-      At line 280 in file ..\Startup\startup_gd32c10x.s
+      At line 151 in file Startup\startup_gd32c10x.s
+      At line 280 in file Startup\startup_gd32c10x.s
 
 CAN1_RX0_IRQHandler 0000001A
 
 Symbol: CAN1_RX0_IRQHandler
    Definitions
-      At line 344 in file ..\Startup\startup_gd32c10x.s
+      At line 344 in file Startup\startup_gd32c10x.s
    Uses
-      At line 149 in file ..\Startup\startup_gd32c10x.s
-      At line 278 in file ..\Startup\startup_gd32c10x.s
+      At line 149 in file Startup\startup_gd32c10x.s
+      At line 278 in file Startup\startup_gd32c10x.s
 
 CAN1_RX1_IRQHandler 0000001A
 
 Symbol: CAN1_RX1_IRQHandler
    Definitions
-      At line 345 in file ..\Startup\startup_gd32c10x.s
+      At line 345 in file Startup\startup_gd32c10x.s
    Uses
-      At line 150 in file ..\Startup\startup_gd32c10x.s
-      At line 279 in file ..\Startup\startup_gd32c10x.s
+      At line 150 in file Startup\startup_gd32c10x.s
+      At line 279 in file Startup\startup_gd32c10x.s
 
 CAN1_TX_IRQHandler 0000001A
 
 Symbol: CAN1_TX_IRQHandler
    Definitions
-      At line 343 in file ..\Startup\startup_gd32c10x.s
+      At line 343 in file Startup\startup_gd32c10x.s
    Uses
-      At line 148 in file ..\Startup\startup_gd32c10x.s
-      At line 277 in file ..\Startup\startup_gd32c10x.s
+      At line 148 in file Startup\startup_gd32c10x.s
+      At line 277 in file Startup\startup_gd32c10x.s
 
 DMA0_Channel0_IRQHandler 0000001A
 
 Symbol: DMA0_Channel0_IRQHandler
    Definitions
-      At line 295 in file ..\Startup\startup_gd32c10x.s
+      At line 295 in file Startup\startup_gd32c10x.s
    Uses
-      At line 96 in file ..\Startup\startup_gd32c10x.s
-      At line 229 in file ..\Startup\startup_gd32c10x.s
+      At line 96 in file Startup\startup_gd32c10x.s
+      At line 229 in file Startup\startup_gd32c10x.s
 
 DMA0_Channel1_IRQHandler 0000001A
 
 Symbol: DMA0_Channel1_IRQHandler
    Definitions
-      At line 296 in file ..\Startup\startup_gd32c10x.s
+      At line 296 in file Startup\startup_gd32c10x.s
    Uses
-      At line 97 in file ..\Startup\startup_gd32c10x.s
-      At line 230 in file ..\Startup\startup_gd32c10x.s
+      At line 97 in file Startup\startup_gd32c10x.s
+      At line 230 in file Startup\startup_gd32c10x.s
 
 DMA0_Channel2_IRQHandler 0000001A
 
@@ -852,112 +852,112 @@ Relocatable symbols
 
 Symbol: DMA0_Channel2_IRQHandler
    Definitions
-      At line 297 in file ..\Startup\startup_gd32c10x.s
+      At line 297 in file Startup\startup_gd32c10x.s
    Uses
-      At line 98 in file ..\Startup\startup_gd32c10x.s
-      At line 231 in file ..\Startup\startup_gd32c10x.s
+      At line 98 in file Startup\startup_gd32c10x.s
+      At line 231 in file Startup\startup_gd32c10x.s
 
 DMA0_Channel3_IRQHandler 0000001A
 
 Symbol: DMA0_Channel3_IRQHandler
    Definitions
-      At line 298 in file ..\Startup\startup_gd32c10x.s
+      At line 298 in file Startup\startup_gd32c10x.s
    Uses
-      At line 99 in file ..\Startup\startup_gd32c10x.s
-      At line 232 in file ..\Startup\startup_gd32c10x.s
+      At line 99 in file Startup\startup_gd32c10x.s
+      At line 232 in file Startup\startup_gd32c10x.s
 
 DMA0_Channel4_IRQHandler 0000001A
 
 Symbol: DMA0_Channel4_IRQHandler
    Definitions
-      At line 299 in file ..\Startup\startup_gd32c10x.s
+      At line 299 in file Startup\startup_gd32c10x.s
    Uses
-      At line 100 in file ..\Startup\startup_gd32c10x.s
-      At line 233 in file ..\Startup\startup_gd32c10x.s
+      At line 100 in file Startup\startup_gd32c10x.s
+      At line 233 in file Startup\startup_gd32c10x.s
 
 DMA0_Channel5_IRQHandler 0000001A
 
 Symbol: DMA0_Channel5_IRQHandler
    Definitions
-      At line 300 in file ..\Startup\startup_gd32c10x.s
+      At line 300 in file Startup\startup_gd32c10x.s
    Uses
-      At line 101 in file ..\Startup\startup_gd32c10x.s
-      At line 234 in file ..\Startup\startup_gd32c10x.s
+      At line 101 in file Startup\startup_gd32c10x.s
+      At line 234 in file Startup\startup_gd32c10x.s
 
 DMA0_Channel6_IRQHandler 0000001A
 
 Symbol: DMA0_Channel6_IRQHandler
    Definitions
-      At line 301 in file ..\Startup\startup_gd32c10x.s
+      At line 301 in file Startup\startup_gd32c10x.s
    Uses
-      At line 102 in file ..\Startup\startup_gd32c10x.s
-      At line 235 in file ..\Startup\startup_gd32c10x.s
+      At line 102 in file Startup\startup_gd32c10x.s
+      At line 235 in file Startup\startup_gd32c10x.s
 
 DMA1_Channel0_IRQHandler 0000001A
 
 Symbol: DMA1_Channel0_IRQHandler
    Definitions
-      At line 338 in file ..\Startup\startup_gd32c10x.s
+      At line 338 in file Startup\startup_gd32c10x.s
    Uses
-      At line 141 in file ..\Startup\startup_gd32c10x.s
-      At line 272 in file ..\Startup\startup_gd32c10x.s
+      At line 141 in file Startup\startup_gd32c10x.s
+      At line 272 in file Startup\startup_gd32c10x.s
 
 DMA1_Channel1_IRQHandler 0000001A
 
 Symbol: DMA1_Channel1_IRQHandler
    Definitions
-      At line 339 in file ..\Startup\startup_gd32c10x.s
+      At line 339 in file Startup\startup_gd32c10x.s
    Uses
-      At line 142 in file ..\Startup\startup_gd32c10x.s
+      At line 142 in file Startup\startup_gd32c10x.s
 
 
 
 ARM Macro Assembler    Page 4 Alphabetic symbol ordering
 Relocatable symbols
 
-      At line 273 in file ..\Startup\startup_gd32c10x.s
+      At line 273 in file Startup\startup_gd32c10x.s
 
 DMA1_Channel2_IRQHandler 0000001A
 
 Symbol: DMA1_Channel2_IRQHandler
    Definitions
-      At line 340 in file ..\Startup\startup_gd32c10x.s
+      At line 340 in file Startup\startup_gd32c10x.s
    Uses
-      At line 143 in file ..\Startup\startup_gd32c10x.s
-      At line 274 in file ..\Startup\startup_gd32c10x.s
+      At line 143 in file Startup\startup_gd32c10x.s
+      At line 274 in file Startup\startup_gd32c10x.s
 
 DMA1_Channel3_IRQHandler 0000001A
 
 Symbol: DMA1_Channel3_IRQHandler
    Definitions
-      At line 341 in file ..\Startup\startup_gd32c10x.s
+      At line 341 in file Startup\startup_gd32c10x.s
    Uses
-      At line 144 in file ..\Startup\startup_gd32c10x.s
-      At line 275 in file ..\Startup\startup_gd32c10x.s
+      At line 144 in file Startup\startup_gd32c10x.s
+      At line 275 in file Startup\startup_gd32c10x.s
 
 DMA1_Channel4_IRQHandler 0000001A
 
 Symbol: DMA1_Channel4_IRQHandler
    Definitions
-      At line 342 in file ..\Startup\startup_gd32c10x.s
+      At line 342 in file Startup\startup_gd32c10x.s
    Uses
-      At line 145 in file ..\Startup\startup_gd32c10x.s
-      At line 276 in file ..\Startup\startup_gd32c10x.s
+      At line 145 in file Startup\startup_gd32c10x.s
+      At line 276 in file Startup\startup_gd32c10x.s
 
 DebugMon_Handler 00000014
 
 Symbol: DebugMon_Handler
    Definitions
-      At line 201 in file ..\Startup\startup_gd32c10x.s
+      At line 201 in file Startup\startup_gd32c10x.s
    Uses
-      At line 79 in file ..\Startup\startup_gd32c10x.s
-      At line 202 in file ..\Startup\startup_gd32c10x.s
+      At line 79 in file Startup\startup_gd32c10x.s
+      At line 202 in file Startup\startup_gd32c10x.s
 
 Default_Handler 0000001A
 
 Symbol: Default_Handler
    Definitions
-      At line 216 in file ..\Startup\startup_gd32c10x.s
+      At line 216 in file Startup\startup_gd32c10x.s
    Uses
       None
 Comment: Default_Handler unused
@@ -965,10 +965,10 @@ EXMC_IRQHandler 0000001A
 
 Symbol: EXMC_IRQHandler
    Definitions
-      At line 331 in file ..\Startup\startup_gd32c10x.s
+      At line 331 in file Startup\startup_gd32c10x.s
    Uses
-      At line 133 in file ..\Startup\startup_gd32c10x.s
-      At line 265 in file ..\Startup\startup_gd32c10x.s
+      At line 133 in file Startup\startup_gd32c10x.s
+      At line 265 in file Startup\startup_gd32c10x.s
 
 EXTI0_IRQHandler 0000001A
 
@@ -980,64 +980,64 @@ Symbol: EXTI0_IRQHandler
 ARM Macro Assembler    Page 5 Alphabetic symbol ordering
 Relocatable symbols
 
-      At line 290 in file ..\Startup\startup_gd32c10x.s
+      At line 290 in file Startup\startup_gd32c10x.s
    Uses
-      At line 91 in file ..\Startup\startup_gd32c10x.s
-      At line 224 in file ..\Startup\startup_gd32c10x.s
+      At line 91 in file Startup\startup_gd32c10x.s
+      At line 224 in file Startup\startup_gd32c10x.s
 
 EXTI10_15_IRQHandler 0000001A
 
 Symbol: EXTI10_15_IRQHandler
    Definitions
-      At line 324 in file ..\Startup\startup_gd32c10x.s
+      At line 324 in file Startup\startup_gd32c10x.s
    Uses
-      At line 125 in file ..\Startup\startup_gd32c10x.s
-      At line 258 in file ..\Startup\startup_gd32c10x.s
+      At line 125 in file Startup\startup_gd32c10x.s
+      At line 258 in file Startup\startup_gd32c10x.s
 
 EXTI1_IRQHandler 0000001A
 
 Symbol: EXTI1_IRQHandler
    Definitions
-      At line 291 in file ..\Startup\startup_gd32c10x.s
+      At line 291 in file Startup\startup_gd32c10x.s
    Uses
-      At line 92 in file ..\Startup\startup_gd32c10x.s
-      At line 225 in file ..\Startup\startup_gd32c10x.s
+      At line 92 in file Startup\startup_gd32c10x.s
+      At line 225 in file Startup\startup_gd32c10x.s
 
 EXTI2_IRQHandler 0000001A
 
 Symbol: EXTI2_IRQHandler
    Definitions
-      At line 292 in file ..\Startup\startup_gd32c10x.s
+      At line 292 in file Startup\startup_gd32c10x.s
    Uses
-      At line 93 in file ..\Startup\startup_gd32c10x.s
-      At line 226 in file ..\Startup\startup_gd32c10x.s
+      At line 93 in file Startup\startup_gd32c10x.s
+      At line 226 in file Startup\startup_gd32c10x.s
 
 EXTI3_IRQHandler 0000001A
 
 Symbol: EXTI3_IRQHandler
    Definitions
-      At line 293 in file ..\Startup\startup_gd32c10x.s
+      At line 293 in file Startup\startup_gd32c10x.s
    Uses
-      At line 94 in file ..\Startup\startup_gd32c10x.s
-      At line 227 in file ..\Startup\startup_gd32c10x.s
+      At line 94 in file Startup\startup_gd32c10x.s
+      At line 227 in file Startup\startup_gd32c10x.s
 
 EXTI4_IRQHandler 0000001A
 
 Symbol: EXTI4_IRQHandler
    Definitions
-      At line 294 in file ..\Startup\startup_gd32c10x.s
+      At line 294 in file Startup\startup_gd32c10x.s
    Uses
-      At line 95 in file ..\Startup\startup_gd32c10x.s
-      At line 228 in file ..\Startup\startup_gd32c10x.s
+      At line 95 in file Startup\startup_gd32c10x.s
+      At line 228 in file Startup\startup_gd32c10x.s
 
 EXTI5_9_IRQHandler 0000001A
 
 Symbol: EXTI5_9_IRQHandler
    Definitions
-      At line 307 in file ..\Startup\startup_gd32c10x.s
+      At line 307 in file Startup\startup_gd32c10x.s
    Uses
-      At line 108 in file ..\Startup\startup_gd32c10x.s
-      At line 241 in file ..\Startup\startup_gd32c10x.s
+      At line 108 in file Startup\startup_gd32c10x.s
+      At line 241 in file Startup\startup_gd32c10x.s
 
 
 
@@ -1049,61 +1049,61 @@ FMC_IRQHandler 0000001A
 
 Symbol: FMC_IRQHandler
    Definitions
-      At line 288 in file ..\Startup\startup_gd32c10x.s
+      At line 288 in file Startup\startup_gd32c10x.s
    Uses
-      At line 89 in file ..\Startup\startup_gd32c10x.s
-      At line 222 in file ..\Startup\startup_gd32c10x.s
+      At line 89 in file Startup\startup_gd32c10x.s
+      At line 222 in file Startup\startup_gd32c10x.s
 
 HardFault_Handler 0000000A
 
 Symbol: HardFault_Handler
    Definitions
-      At line 177 in file ..\Startup\startup_gd32c10x.s
+      At line 177 in file Startup\startup_gd32c10x.s
    Uses
-      At line 70 in file ..\Startup\startup_gd32c10x.s
-      At line 178 in file ..\Startup\startup_gd32c10x.s
+      At line 70 in file Startup\startup_gd32c10x.s
+      At line 178 in file Startup\startup_gd32c10x.s
 
 I2C0_ER_IRQHandler 0000001A
 
 Symbol: I2C0_ER_IRQHandler
    Definitions
-      At line 316 in file ..\Startup\startup_gd32c10x.s
+      At line 316 in file Startup\startup_gd32c10x.s
    Uses
-      At line 117 in file ..\Startup\startup_gd32c10x.s
-      At line 250 in file ..\Startup\startup_gd32c10x.s
+      At line 117 in file Startup\startup_gd32c10x.s
+      At line 250 in file Startup\startup_gd32c10x.s
 
 I2C0_EV_IRQHandler 0000001A
 
 Symbol: I2C0_EV_IRQHandler
    Definitions
-      At line 315 in file ..\Startup\startup_gd32c10x.s
+      At line 315 in file Startup\startup_gd32c10x.s
    Uses
-      At line 116 in file ..\Startup\startup_gd32c10x.s
-      At line 249 in file ..\Startup\startup_gd32c10x.s
+      At line 116 in file Startup\startup_gd32c10x.s
+      At line 249 in file Startup\startup_gd32c10x.s
 
 I2C1_ER_IRQHandler 0000001A
 
 Symbol: I2C1_ER_IRQHandler
    Definitions
-      At line 318 in file ..\Startup\startup_gd32c10x.s
+      At line 318 in file Startup\startup_gd32c10x.s
    Uses
-      At line 119 in file ..\Startup\startup_gd32c10x.s
-      At line 252 in file ..\Startup\startup_gd32c10x.s
+      At line 119 in file Startup\startup_gd32c10x.s
+      At line 252 in file Startup\startup_gd32c10x.s
 
 I2C1_EV_IRQHandler 0000001A
 
 Symbol: I2C1_EV_IRQHandler
    Definitions
-      At line 317 in file ..\Startup\startup_gd32c10x.s
+      At line 317 in file Startup\startup_gd32c10x.s
    Uses
-      At line 118 in file ..\Startup\startup_gd32c10x.s
-      At line 251 in file ..\Startup\startup_gd32c10x.s
+      At line 118 in file Startup\startup_gd32c10x.s
+      At line 251 in file Startup\startup_gd32c10x.s
 
 LVD_IRQHandler 0000001A
 
 Symbol: LVD_IRQHandler
    Definitions
-      At line 285 in file ..\Startup\startup_gd32c10x.s
+      At line 285 in file Startup\startup_gd32c10x.s
 
 
 
@@ -1111,62 +1111,62 @@ ARM Macro Assembler    Page 7 Alphabetic symbol ordering
 Relocatable symbols
 
    Uses
-      At line 86 in file ..\Startup\startup_gd32c10x.s
-      At line 219 in file ..\Startup\startup_gd32c10x.s
+      At line 86 in file Startup\startup_gd32c10x.s
+      At line 219 in file Startup\startup_gd32c10x.s
 
 MemManage_Handler 0000000C
 
 Symbol: MemManage_Handler
    Definitions
-      At line 182 in file ..\Startup\startup_gd32c10x.s
+      At line 182 in file Startup\startup_gd32c10x.s
    Uses
-      At line 71 in file ..\Startup\startup_gd32c10x.s
-      At line 183 in file ..\Startup\startup_gd32c10x.s
+      At line 71 in file Startup\startup_gd32c10x.s
+      At line 183 in file Startup\startup_gd32c10x.s
 
 NMI_Handler 00000008
 
 Symbol: NMI_Handler
    Definitions
-      At line 172 in file ..\Startup\startup_gd32c10x.s
+      At line 172 in file Startup\startup_gd32c10x.s
    Uses
-      At line 69 in file ..\Startup\startup_gd32c10x.s
-      At line 173 in file ..\Startup\startup_gd32c10x.s
+      At line 69 in file Startup\startup_gd32c10x.s
+      At line 173 in file Startup\startup_gd32c10x.s
 
 PendSV_Handler 00000016
 
 Symbol: PendSV_Handler
    Definitions
-      At line 206 in file ..\Startup\startup_gd32c10x.s
+      At line 206 in file Startup\startup_gd32c10x.s
    Uses
-      At line 81 in file ..\Startup\startup_gd32c10x.s
-      At line 207 in file ..\Startup\startup_gd32c10x.s
+      At line 81 in file Startup\startup_gd32c10x.s
+      At line 207 in file Startup\startup_gd32c10x.s
 
 RCU_CTC_IRQHandler 0000001A
 
 Symbol: RCU_CTC_IRQHandler
    Definitions
-      At line 289 in file ..\Startup\startup_gd32c10x.s
+      At line 289 in file Startup\startup_gd32c10x.s
    Uses
-      At line 90 in file ..\Startup\startup_gd32c10x.s
-      At line 223 in file ..\Startup\startup_gd32c10x.s
+      At line 90 in file Startup\startup_gd32c10x.s
+      At line 223 in file Startup\startup_gd32c10x.s
 
 RTC_Alarm_IRQHandler 0000001A
 
 Symbol: RTC_Alarm_IRQHandler
    Definitions
-      At line 325 in file ..\Startup\startup_gd32c10x.s
+      At line 325 in file Startup\startup_gd32c10x.s
    Uses
-      At line 126 in file ..\Startup\startup_gd32c10x.s
-      At line 259 in file ..\Startup\startup_gd32c10x.s
+      At line 126 in file Startup\startup_gd32c10x.s
+      At line 259 in file Startup\startup_gd32c10x.s
 
 RTC_IRQHandler 0000001A
 
 Symbol: RTC_IRQHandler
    Definitions
-      At line 287 in file ..\Startup\startup_gd32c10x.s
+      At line 287 in file Startup\startup_gd32c10x.s
    Uses
-      At line 88 in file ..\Startup\startup_gd32c10x.s
-      At line 221 in file ..\Startup\startup_gd32c10x.s
+      At line 88 in file Startup\startup_gd32c10x.s
+      At line 221 in file Startup\startup_gd32c10x.s
 
 Reset_Handler 00000000
 
@@ -1178,61 +1178,61 @@ Relocatable symbols
 
 Symbol: Reset_Handler
    Definitions
-      At line 161 in file ..\Startup\startup_gd32c10x.s
+      At line 161 in file Startup\startup_gd32c10x.s
    Uses
-      At line 68 in file ..\Startup\startup_gd32c10x.s
-      At line 162 in file ..\Startup\startup_gd32c10x.s
+      At line 68 in file Startup\startup_gd32c10x.s
+      At line 162 in file Startup\startup_gd32c10x.s
 
 SPI0_IRQHandler 0000001A
 
 Symbol: SPI0_IRQHandler
    Definitions
-      At line 319 in file ..\Startup\startup_gd32c10x.s
+      At line 319 in file Startup\startup_gd32c10x.s
    Uses
-      At line 120 in file ..\Startup\startup_gd32c10x.s
-      At line 253 in file ..\Startup\startup_gd32c10x.s
+      At line 120 in file Startup\startup_gd32c10x.s
+      At line 253 in file Startup\startup_gd32c10x.s
 
 SPI1_IRQHandler 0000001A
 
 Symbol: SPI1_IRQHandler
    Definitions
-      At line 320 in file ..\Startup\startup_gd32c10x.s
+      At line 320 in file Startup\startup_gd32c10x.s
    Uses
-      At line 121 in file ..\Startup\startup_gd32c10x.s
-      At line 254 in file ..\Startup\startup_gd32c10x.s
+      At line 121 in file Startup\startup_gd32c10x.s
+      At line 254 in file Startup\startup_gd32c10x.s
 
 SPI2_IRQHandler 0000001A
 
 Symbol: SPI2_IRQHandler
    Definitions
-      At line 333 in file ..\Startup\startup_gd32c10x.s
+      At line 333 in file Startup\startup_gd32c10x.s
    Uses
-      At line 136 in file ..\Startup\startup_gd32c10x.s
-      At line 267 in file ..\Startup\startup_gd32c10x.s
+      At line 136 in file Startup\startup_gd32c10x.s
+      At line 267 in file Startup\startup_gd32c10x.s
 
 SVC_Handler 00000012
 
 Symbol: SVC_Handler
    Definitions
-      At line 196 in file ..\Startup\startup_gd32c10x.s
+      At line 196 in file Startup\startup_gd32c10x.s
    Uses
-      At line 78 in file ..\Startup\startup_gd32c10x.s
-      At line 197 in file ..\Startup\startup_gd32c10x.s
+      At line 78 in file Startup\startup_gd32c10x.s
+      At line 197 in file Startup\startup_gd32c10x.s
 
 SysTick_Handler 00000018
 
 Symbol: SysTick_Handler
    Definitions
-      At line 211 in file ..\Startup\startup_gd32c10x.s
+      At line 211 in file Startup\startup_gd32c10x.s
    Uses
-      At line 82 in file ..\Startup\startup_gd32c10x.s
-      At line 212 in file ..\Startup\startup_gd32c10x.s
+      At line 82 in file Startup\startup_gd32c10x.s
+      At line 212 in file Startup\startup_gd32c10x.s
 
 TAMPER_IRQHandler 0000001A
 
 Symbol: TAMPER_IRQHandler
    Definitions
-      At line 286 in file ..\Startup\startup_gd32c10x.s
+      At line 286 in file Startup\startup_gd32c10x.s
    Uses
 
 
@@ -1240,62 +1240,62 @@ Symbol: TAMPER_IRQHandler
 ARM Macro Assembler    Page 9 Alphabetic symbol ordering
 Relocatable symbols
 
-      At line 87 in file ..\Startup\startup_gd32c10x.s
-      At line 220 in file ..\Startup\startup_gd32c10x.s
+      At line 87 in file Startup\startup_gd32c10x.s
+      At line 220 in file Startup\startup_gd32c10x.s
 
 TIMER0_BRK_TIMER8_IRQHandler 0000001A
 
 Symbol: TIMER0_BRK_TIMER8_IRQHandler
    Definitions
-      At line 308 in file ..\Startup\startup_gd32c10x.s
+      At line 308 in file Startup\startup_gd32c10x.s
    Uses
-      At line 109 in file ..\Startup\startup_gd32c10x.s
-      At line 242 in file ..\Startup\startup_gd32c10x.s
+      At line 109 in file Startup\startup_gd32c10x.s
+      At line 242 in file Startup\startup_gd32c10x.s
 
 TIMER0_Channel_IRQHandler 0000001A
 
 Symbol: TIMER0_Channel_IRQHandler
    Definitions
-      At line 311 in file ..\Startup\startup_gd32c10x.s
+      At line 311 in file Startup\startup_gd32c10x.s
    Uses
-      At line 112 in file ..\Startup\startup_gd32c10x.s
-      At line 245 in file ..\Startup\startup_gd32c10x.s
+      At line 112 in file Startup\startup_gd32c10x.s
+      At line 245 in file Startup\startup_gd32c10x.s
 
 TIMER0_TRG_CMT_TIMER10_IRQHandler 0000001A
 
 Symbol: TIMER0_TRG_CMT_TIMER10_IRQHandler
    Definitions
-      At line 310 in file ..\Startup\startup_gd32c10x.s
+      At line 310 in file Startup\startup_gd32c10x.s
    Uses
-      At line 111 in file ..\Startup\startup_gd32c10x.s
-      At line 244 in file ..\Startup\startup_gd32c10x.s
+      At line 111 in file Startup\startup_gd32c10x.s
+      At line 244 in file Startup\startup_gd32c10x.s
 
 TIMER0_UP_TIMER9_IRQHandler 0000001A
 
 Symbol: TIMER0_UP_TIMER9_IRQHandler
    Definitions
-      At line 309 in file ..\Startup\startup_gd32c10x.s
+      At line 309 in file Startup\startup_gd32c10x.s
    Uses
-      At line 110 in file ..\Startup\startup_gd32c10x.s
-      At line 243 in file ..\Startup\startup_gd32c10x.s
+      At line 110 in file Startup\startup_gd32c10x.s
+      At line 243 in file Startup\startup_gd32c10x.s
 
 TIMER1_IRQHandler 0000001A
 
 Symbol: TIMER1_IRQHandler
    Definitions
-      At line 312 in file ..\Startup\startup_gd32c10x.s
+      At line 312 in file Startup\startup_gd32c10x.s
    Uses
-      At line 113 in file ..\Startup\startup_gd32c10x.s
-      At line 246 in file ..\Startup\startup_gd32c10x.s
+      At line 113 in file Startup\startup_gd32c10x.s
+      At line 246 in file Startup\startup_gd32c10x.s
 
 TIMER2_IRQHandler 0000001A
 
 Symbol: TIMER2_IRQHandler
    Definitions
-      At line 313 in file ..\Startup\startup_gd32c10x.s
+      At line 313 in file Startup\startup_gd32c10x.s
    Uses
-      At line 114 in file ..\Startup\startup_gd32c10x.s
-      At line 247 in file ..\Startup\startup_gd32c10x.s
+      At line 114 in file Startup\startup_gd32c10x.s
+      At line 247 in file Startup\startup_gd32c10x.s
 
 TIMER3_IRQHandler 0000001A
 
@@ -1307,124 +1307,124 @@ Relocatable symbols
 
 Symbol: TIMER3_IRQHandler
    Definitions
-      At line 314 in file ..\Startup\startup_gd32c10x.s
+      At line 314 in file Startup\startup_gd32c10x.s
    Uses
-      At line 115 in file ..\Startup\startup_gd32c10x.s
-      At line 248 in file ..\Startup\startup_gd32c10x.s
+      At line 115 in file Startup\startup_gd32c10x.s
+      At line 248 in file Startup\startup_gd32c10x.s
 
 TIMER4_IRQHandler 0000001A
 
 Symbol: TIMER4_IRQHandler
    Definitions
-      At line 332 in file ..\Startup\startup_gd32c10x.s
+      At line 332 in file Startup\startup_gd32c10x.s
    Uses
-      At line 135 in file ..\Startup\startup_gd32c10x.s
-      At line 266 in file ..\Startup\startup_gd32c10x.s
+      At line 135 in file Startup\startup_gd32c10x.s
+      At line 266 in file Startup\startup_gd32c10x.s
 
 TIMER5_IRQHandler 0000001A
 
 Symbol: TIMER5_IRQHandler
    Definitions
-      At line 336 in file ..\Startup\startup_gd32c10x.s
+      At line 336 in file Startup\startup_gd32c10x.s
    Uses
-      At line 139 in file ..\Startup\startup_gd32c10x.s
-      At line 270 in file ..\Startup\startup_gd32c10x.s
+      At line 139 in file Startup\startup_gd32c10x.s
+      At line 270 in file Startup\startup_gd32c10x.s
 
 TIMER6_IRQHandler 0000001A
 
 Symbol: TIMER6_IRQHandler
    Definitions
-      At line 337 in file ..\Startup\startup_gd32c10x.s
+      At line 337 in file Startup\startup_gd32c10x.s
    Uses
-      At line 140 in file ..\Startup\startup_gd32c10x.s
-      At line 271 in file ..\Startup\startup_gd32c10x.s
+      At line 140 in file Startup\startup_gd32c10x.s
+      At line 271 in file Startup\startup_gd32c10x.s
 
 TIMER7_BRK_TIMER11_IRQHandler 0000001A
 
 Symbol: TIMER7_BRK_TIMER11_IRQHandler
    Definitions
-      At line 327 in file ..\Startup\startup_gd32c10x.s
+      At line 327 in file Startup\startup_gd32c10x.s
    Uses
-      At line 128 in file ..\Startup\startup_gd32c10x.s
-      At line 261 in file ..\Startup\startup_gd32c10x.s
+      At line 128 in file Startup\startup_gd32c10x.s
+      At line 261 in file Startup\startup_gd32c10x.s
 
 TIMER7_Channel_IRQHandler 0000001A
 
 Symbol: TIMER7_Channel_IRQHandler
    Definitions
-      At line 330 in file ..\Startup\startup_gd32c10x.s
+      At line 330 in file Startup\startup_gd32c10x.s
    Uses
-      At line 131 in file ..\Startup\startup_gd32c10x.s
-      At line 264 in file ..\Startup\startup_gd32c10x.s
+      At line 131 in file Startup\startup_gd32c10x.s
+      At line 264 in file Startup\startup_gd32c10x.s
 
 TIMER7_TRG_CMT_TIMER13_IRQHandler 0000001A
 
 Symbol: TIMER7_TRG_CMT_TIMER13_IRQHandler
    Definitions
-      At line 329 in file ..\Startup\startup_gd32c10x.s
+      At line 329 in file Startup\startup_gd32c10x.s
    Uses
-      At line 130 in file ..\Startup\startup_gd32c10x.s
+      At line 130 in file Startup\startup_gd32c10x.s
 
 
 
 ARM Macro Assembler    Page 11 Alphabetic symbol ordering
 Relocatable symbols
 
-      At line 263 in file ..\Startup\startup_gd32c10x.s
+      At line 263 in file Startup\startup_gd32c10x.s
 
 TIMER7_UP_TIMER12_IRQHandler 0000001A
 
 Symbol: TIMER7_UP_TIMER12_IRQHandler
    Definitions
-      At line 328 in file ..\Startup\startup_gd32c10x.s
+      At line 328 in file Startup\startup_gd32c10x.s
    Uses
-      At line 129 in file ..\Startup\startup_gd32c10x.s
-      At line 262 in file ..\Startup\startup_gd32c10x.s
+      At line 129 in file Startup\startup_gd32c10x.s
+      At line 262 in file Startup\startup_gd32c10x.s
 
 UART3_IRQHandler 0000001A
 
 Symbol: UART3_IRQHandler
    Definitions
-      At line 334 in file ..\Startup\startup_gd32c10x.s
+      At line 334 in file Startup\startup_gd32c10x.s
    Uses
-      At line 137 in file ..\Startup\startup_gd32c10x.s
-      At line 268 in file ..\Startup\startup_gd32c10x.s
+      At line 137 in file Startup\startup_gd32c10x.s
+      At line 268 in file Startup\startup_gd32c10x.s
 
 UART4_IRQHandler 0000001A
 
 Symbol: UART4_IRQHandler
    Definitions
-      At line 335 in file ..\Startup\startup_gd32c10x.s
+      At line 335 in file Startup\startup_gd32c10x.s
    Uses
-      At line 138 in file ..\Startup\startup_gd32c10x.s
-      At line 269 in file ..\Startup\startup_gd32c10x.s
+      At line 138 in file Startup\startup_gd32c10x.s
+      At line 269 in file Startup\startup_gd32c10x.s
 
 USART0_IRQHandler 0000001A
 
 Symbol: USART0_IRQHandler
    Definitions
-      At line 321 in file ..\Startup\startup_gd32c10x.s
+      At line 321 in file Startup\startup_gd32c10x.s
    Uses
-      At line 122 in file ..\Startup\startup_gd32c10x.s
-      At line 255 in file ..\Startup\startup_gd32c10x.s
+      At line 122 in file Startup\startup_gd32c10x.s
+      At line 255 in file Startup\startup_gd32c10x.s
 
 USART1_IRQHandler 0000001A
 
 Symbol: USART1_IRQHandler
    Definitions
-      At line 322 in file ..\Startup\startup_gd32c10x.s
+      At line 322 in file Startup\startup_gd32c10x.s
    Uses
-      At line 123 in file ..\Startup\startup_gd32c10x.s
-      At line 256 in file ..\Startup\startup_gd32c10x.s
+      At line 123 in file Startup\startup_gd32c10x.s
+      At line 256 in file Startup\startup_gd32c10x.s
 
 USART2_IRQHandler 0000001A
 
 Symbol: USART2_IRQHandler
    Definitions
-      At line 323 in file ..\Startup\startup_gd32c10x.s
+      At line 323 in file Startup\startup_gd32c10x.s
    Uses
-      At line 124 in file ..\Startup\startup_gd32c10x.s
-      At line 257 in file ..\Startup\startup_gd32c10x.s
+      At line 124 in file Startup\startup_gd32c10x.s
+      At line 257 in file Startup\startup_gd32c10x.s
 
 USBFS_IRQHandler 0000001A
 
@@ -1436,37 +1436,37 @@ ARM Macro Assembler    Page 12 Alphabetic symbol ordering
 Relocatable symbols
 
    Definitions
-      At line 347 in file ..\Startup\startup_gd32c10x.s
+      At line 347 in file Startup\startup_gd32c10x.s
    Uses
-      At line 152 in file ..\Startup\startup_gd32c10x.s
-      At line 281 in file ..\Startup\startup_gd32c10x.s
+      At line 152 in file Startup\startup_gd32c10x.s
+      At line 281 in file Startup\startup_gd32c10x.s
 
 USBFS_WKUP_IRQHandler 0000001A
 
 Symbol: USBFS_WKUP_IRQHandler
    Definitions
-      At line 326 in file ..\Startup\startup_gd32c10x.s
+      At line 326 in file Startup\startup_gd32c10x.s
    Uses
-      At line 127 in file ..\Startup\startup_gd32c10x.s
-      At line 260 in file ..\Startup\startup_gd32c10x.s
+      At line 127 in file Startup\startup_gd32c10x.s
+      At line 260 in file Startup\startup_gd32c10x.s
 
 UsageFault_Handler 00000010
 
 Symbol: UsageFault_Handler
    Definitions
-      At line 192 in file ..\Startup\startup_gd32c10x.s
+      At line 192 in file Startup\startup_gd32c10x.s
    Uses
-      At line 73 in file ..\Startup\startup_gd32c10x.s
-      At line 193 in file ..\Startup\startup_gd32c10x.s
+      At line 73 in file Startup\startup_gd32c10x.s
+      At line 193 in file Startup\startup_gd32c10x.s
 
 WWDGT_IRQHandler 0000001A
 
 Symbol: WWDGT_IRQHandler
    Definitions
-      At line 284 in file ..\Startup\startup_gd32c10x.s
+      At line 284 in file Startup\startup_gd32c10x.s
    Uses
-      At line 85 in file ..\Startup\startup_gd32c10x.s
-      At line 218 in file ..\Startup\startup_gd32c10x.s
+      At line 85 in file Startup\startup_gd32c10x.s
+      At line 218 in file Startup\startup_gd32c10x.s
 
 76 symbols
 
@@ -1479,25 +1479,25 @@ Heap_Size 00000400
 
 Symbol: Heap_Size
    Definitions
-      At line 51 in file ..\Startup\startup_gd32c10x.s
+      At line 51 in file Startup\startup_gd32c10x.s
    Uses
-      At line 55 in file ..\Startup\startup_gd32c10x.s
+      At line 55 in file Startup\startup_gd32c10x.s
 Comment: Heap_Size used once
 Stack_Size 00000400
 
 Symbol: Stack_Size
    Definitions
-      At line 40 in file ..\Startup\startup_gd32c10x.s
+      At line 40 in file Startup\startup_gd32c10x.s
    Uses
-      At line 43 in file ..\Startup\startup_gd32c10x.s
+      At line 43 in file Startup\startup_gd32c10x.s
 Comment: Stack_Size used once
 __Vectors_Size 00000150
 
 Symbol: __Vectors_Size
    Definitions
-      At line 156 in file ..\Startup\startup_gd32c10x.s
+      At line 156 in file Startup\startup_gd32c10x.s
    Uses
-      At line 65 in file ..\Startup\startup_gd32c10x.s
+      At line 65 in file Startup\startup_gd32c10x.s
 Comment: __Vectors_Size used once
 3 symbols
 
@@ -1510,17 +1510,17 @@ SystemInit 00000000
 
 Symbol: SystemInit
    Definitions
-      At line 163 in file ..\Startup\startup_gd32c10x.s
+      At line 163 in file Startup\startup_gd32c10x.s
    Uses
-      At line 165 in file ..\Startup\startup_gd32c10x.s
+      At line 165 in file Startup\startup_gd32c10x.s
 Comment: SystemInit used once
 __main 00000000
 
 Symbol: __main
    Definitions
-      At line 164 in file ..\Startup\startup_gd32c10x.s
+      At line 164 in file Startup\startup_gd32c10x.s
    Uses
-      At line 167 in file ..\Startup\startup_gd32c10x.s
+      At line 167 in file Startup\startup_gd32c10x.s
 Comment: __main used once
 2 symbols
-427 symbols in table
+428 symbols in table
