@@ -196,7 +196,7 @@ void i2c_config(void)
     rcu_periph_clock_enable(RCU_I2C0);
     gpio_init(GPIOB, GPIO_MODE_AF_OD, GPIO_OSPEED_50MHZ, GPIO_PIN_6 | GPIO_PIN_7);        // i2c gpio config, PB7/6 - SDA/SCL
     /* I2C clock configure */
-    i2c_clock_config(I2C0, 100000, I2C_DTCY_2);
+    i2c_clock_config(I2C0, 1000000, I2C_DTCY_2);																					// Fast mode plus
     /* I2C address configure */
     i2c_mode_addr_config(I2C0, I2C_I2CMODE_ENABLE, I2C_ADDFORMAT_7BITS, I2C0_OWN_ADDRESS7);
     /* enable I2C0 */
@@ -485,7 +485,7 @@ int getI2CDta(unsigned char *dta)
 #if DBUG
     while(!i2c_flag_get(I2C0, I2C_FLAG_RBNE))
     {
-        __NOP;
+        __NOP();
         tout++;
         if(tout > 5000)
         {
@@ -503,7 +503,7 @@ int getI2CDta(unsigned char *dta)
     {
         dta[len++] = i2c_data_receive(I2C0);
         for(i=0; i<3000; i++)
-        __NOP;
+        __NOP();
 
         if(len > 73)
         {
@@ -515,7 +515,7 @@ int getI2CDta(unsigned char *dta)
 #if DBUG
     while(!i2c_flag_get(I2C0, I2C_FLAG_STPDET))
     {
-        __NOP;
+        __NOP();
         tout++;
         if(tout > 5000)
         {
@@ -542,7 +542,7 @@ int sendI2CDta(unsigned char *dta, int dlen)
     //if(!i2c_flag_get(I2C0, I2C_FLAG_ADDSEND))return 0;
     while(!i2c_flag_get(I2C0, I2C_FLAG_ADDSEND))
     {
-        __NOP;
+        __NOP();
         tout++;
         if(tout > 5000)
         {
@@ -559,7 +559,7 @@ int sendI2CDta(unsigned char *dta, int dlen)
     /* wait until the transmission data register is empty */
     while(!i2c_flag_get(I2C0, I2C_FLAG_TBE))
     {
-        __NOP;
+        __NOP();
         tout++;
         if(tout > 5000)
         {
@@ -575,7 +575,7 @@ int sendI2CDta(unsigned char *dta, int dlen)
         /* wait until the transmission data register is empty */
         while(!i2c_flag_get(I2C0, I2C_FLAG_TBE))
         {
-            __NOP;
+            __NOP();
             tout++;
             if(tout > 5000)
             {
@@ -588,7 +588,7 @@ int sendI2CDta(unsigned char *dta, int dlen)
     /* the master doesn't acknowledge for the last byte */
     while(!i2c_flag_get(I2C0, I2C_FLAG_AERR))
     {
-        __NOP;
+        __NOP();
         tout++;
         if(tout > 5000)
         {

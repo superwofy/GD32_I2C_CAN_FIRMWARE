@@ -1,4 +1,4 @@
-Forked from https://github.com/Longan-Labs/GD32_I2C_CAN_FIRMWARE
+Forked from https://github.com/Longan-Labs/GD32_I2C_CAN_FIRMWARE/commit/c2d772884fa3bd57015d34f57689de8dedbea7ec
 
 
 # GD32 I2C CAN FIRMWARE
@@ -9,7 +9,7 @@ Since the GD32E103 and GD32C103 are pin to pin compatible, these codes will work
 
 ## Development environment and tools
 
-This project is compiled with Keil 5.36, ARMC <= 5.06u7.
+This project is compiled with Keil 5.37, ARMCLANG >= 6.18.
 
 Simulation tools can use ST-Link or JLink.
 

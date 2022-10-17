@@ -123,12 +123,12 @@ void Serial_write(unsigned char c)
 
 void Serial_print(char *s)
 {
-    printf("%s", *s);
+    printf("%s", s);
 }
 
 void Serial_println(char *s)
 {
-    printf("%s\r\n", *s);
+    printf("%s\r\n", s);
 }
 
 /* retarget the C library printf function to the USART */
