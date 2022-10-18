@@ -605,11 +605,26 @@ int main(void)
 									can_config1(can1config);
 									break;
 
-
                 case REG1_ADDR_CONFIG:
 									memcpy(can1config, &i2cDta[1], CANCONFIG_SIZE);
 									can_config0(can0config);
 									can_config1(can1config);
+									break;
+								
+								case REG_ADDR_SLEEP:
+									can_working_mode_set(CAN0, CAN_MODE_SLEEP);
+									break;
+								
+								case REG1_ADDR_SLEEP:
+									can_working_mode_set(CAN1, CAN_MODE_SLEEP);
+									break;
+								
+								case REG_ADDR_WAKE:
+									can_working_mode_set(CAN0, CAN_MODE_NORMAL);
+									break;
+								
+								case REG1_ADDR_WAKE:
+									can_working_mode_set(CAN1, CAN_MODE_NORMAL);
 									break;
 
                 default:
