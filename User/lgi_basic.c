@@ -8,10 +8,11 @@ unsigned long cnt_millis = 0;
 
 void LGI_Init(void)
 {
-    systick_config();                   // 初始化始终，外部8M
-    rcu_periph_clock_enable(RCU_GPIOA);
+    systick_config();                   																																													// Initialization always, external 8M
+    rcu_periph_clock_enable(RCU_GPIOA);																																														// RCU = Reset Control Unit. Activate GPIO clocks.
     rcu_periph_clock_enable(RCU_GPIOB);
     rcu_periph_clock_enable(RCU_GPIOC);
+    rcu_periph_clock_enable(RCU_GPIOD);
 }
 
 // void timer
@@ -35,7 +36,7 @@ void pinMode(int pin, int mode)
     
     printf("iomode = %d\r\n", ioMode);
     printf("pinum  = %d\r\n", pin);
-    if(pin < 20)        // GPIOA
+    if(pin < 20)        																																																					// GPIOA
     {
         gpio_init(GPIOA, ioMode, GPIO_OSPEED_50MHZ, BIT(pin%20));
     }
@@ -51,7 +52,7 @@ void pinMode(int pin, int mode)
 
 void digitalWrite(int pin, int mode)
 {
-    if(pin < 20)        // GPIOA
+    if(pin < 20)        																																																					// GPIOA
     {
         if(mode)gpio_bit_set(GPIOA, BIT(pin%20));
         else gpio_bit_reset(GPIOA,BIT(pin%20));
@@ -73,7 +74,7 @@ void digitalWrite(int pin, int mode)
 int digitalRead(int pin)
 {
 
-    if(pin < 20)        // GPIOA
+    if(pin < 20)        																																																					// GPIOA
     {
         return gpio_input_bit_get(GPIOA, BIT(pin%20));
     }
@@ -94,7 +95,7 @@ int digitalRead(int pin)
 // ----------------------------------------------------------
 // --------------------------SERIAL--------------------------
 // ----------------------------------------------------------
-void Serial_begin(unsigned long baud)      // USART 0
+void Serial_begin(unsigned long baud)      																																												// USART 0
 {
     nvic_irq_enable(USART0_IRQn, 2, 2);
     gd_eval_com_init(EVAL_COM0, baud);
@@ -139,8 +140,3 @@ void Serial_println(char *s)
     return ch;
 }
 */
-
-// END FILE
-
-
-
