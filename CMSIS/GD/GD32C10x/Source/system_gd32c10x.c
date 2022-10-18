@@ -111,7 +111,7 @@ static void system_clock_120m_hxtal(void);
 static void system_clock_config(void);
 
 /*!
-    \brief      setup the microcontroller system, initialize the system
+    \brief      setup the micro controller system, initialize the system
     \param[in]  none
     \param[out] none
     \retval     none
@@ -125,9 +125,10 @@ void SystemInit (void)
     /* reset the RCU clock configuration to the default reset state */
     /* Set IRC8MEN bit */
     RCU_CTL |= RCU_CTL_IRC8MEN;
-	
-	RCU_MODIFY(0x50);
-	
+    while(0U == (RCU_CTL & RCU_CTL_IRC8MSTB)) {
+    }
+    RCU_MODIFY(0x50);
+
     RCU_CFG0 &= ~RCU_CFG0_SCS;
 
     /* Reset HXTALEN, CKMEN, PLLEN, PLL1EN and PLL2EN bits */
@@ -150,7 +151,6 @@ void SystemInit (void)
 #else
   nvic_vector_table_set(NVIC_VECTTAB_FLASH,VECT_TAB_OFFSET);
 #endif
-
 }
 
 /*!

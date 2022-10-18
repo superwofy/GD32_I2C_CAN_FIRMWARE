@@ -3,10 +3,11 @@
     \brief   definitions for the PMU
     
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -78,14 +79,14 @@ OF SUCH DAMAGE.
 #define PMU_LDOVS_NORMAL              CTL_LDOVS(1)             /*!< LDO output voltage select normal mode */
 #define PMU_LDOVS_LOW                 CTL_LDOVS(3)             /*!< LDO output voltage select low mode */
 
+/* PMU ldo definitions */
+#define PMU_LDO_NORMAL                ((uint32_t)0x00000000U)  /*!< LDO normal work when PMU enter deepsleep mode */
+#define PMU_LDO_LOWPOWER              PMU_CTL_LDOLP            /*!< LDO work at low power status when PMU enter deepsleep mode */
+
 /* PMU flag definitions */
 #define PMU_FLAG_WAKEUP               PMU_CS_WUF               /*!< wakeup flag status */
 #define PMU_FLAG_STANDBY              PMU_CS_STBF              /*!< standby flag status */
 #define PMU_FLAG_LVD                  PMU_CS_LVDF              /*!< lvd flag status */
-
-/* PMU ldo definitions */
-#define PMU_LDO_NORMAL                ((uint32_t)0x00000000U)  /*!< LDO normal work when PMU enter deepsleep mode */
-#define PMU_LDO_LOWPOWER              PMU_CTL_LDOLP            /*!< LDO work at low power status when PMU enter deepsleep mode */
 
 /* PMU flag reset definitions */
 #define PMU_FLAG_RESET_WAKEUP         ((uint8_t)0x00U)         /*!< wakeup flag reset */
@@ -112,7 +113,7 @@ void pmu_to_sleepmode(uint8_t sleepmodecmd);
 /* PMU work at deepsleep mode */
 void pmu_to_deepsleepmode(uint32_t ldo, uint8_t deepsleepmodecmd);
 /* PMU work at standby mode */
-void pmu_to_standbymode(uint8_t standbymodecmd);
+void pmu_to_standbymode(void);
 
 /* wakeup pin related functions */
 /* enable PMU wakeup pin */
@@ -127,9 +128,9 @@ void pmu_backup_write_enable(void);
 void pmu_backup_write_disable(void);
 
 /* flag functions */
-/* clear flag bit */
-void pmu_flag_clear(uint32_t flag_reset);
 /* get flag state */
 FlagStatus pmu_flag_get(uint32_t flag);
+/* clear flag bit */
+void pmu_flag_clear(uint32_t flag);
 
 #endif /* GD32C10X_PMU_H */

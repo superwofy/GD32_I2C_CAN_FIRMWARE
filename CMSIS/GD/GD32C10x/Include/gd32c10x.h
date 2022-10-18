@@ -3,10 +3,11 @@
     \brief   general definitions for GD32C10x
 
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -39,8 +40,7 @@ OF SUCH DAMAGE.
  extern "C" {
 #endif 
 
-
-# define GD32C10X
+#define GD32C10X
 #if !defined (GD32C10X)
   #define GD32C10X
 #endif /* define GD32C10x */

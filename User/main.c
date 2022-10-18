@@ -464,7 +464,7 @@ int main(void)
     LGI_Init();
 		
 #if DEBUG
-    Serial_begin(115200);
+    Serial_begin();
 #endif
 
 		/* configure CAN */

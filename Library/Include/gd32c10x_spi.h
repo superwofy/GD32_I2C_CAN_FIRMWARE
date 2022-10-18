@@ -3,10 +3,13 @@
     \brief   definitions for the SPI
     
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
+    \version 2021-05-31, V1.0.1, firmware for GD32C10x
+    \version 2021-12-31, V1.0.2, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -332,18 +335,18 @@ void spi_nssp_mode_enable(uint32_t spi_periph);
 void spi_nssp_mode_disable(uint32_t spi_periph);
 
 /* quad wire SPI functions */
-/* enable quad wire SPI */
-void qspi_enable(uint32_t spi_periph);
-/* disable quad wire SPI */
-void qspi_disable(uint32_t spi_periph);
-/* enable quad wire SPI write */
-void qspi_write_enable(uint32_t spi_periph);
-/* enable quad wire SPI read */
-void qspi_read_enable(uint32_t spi_periph);
-/* enable quad wire SPI_IO2 and SPI_IO3 pin output */
-void qspi_io23_output_enable(uint32_t spi_periph);
-/* disable quad wire SPI_IO2 and SPI_IO3 pin output */
-void qspi_io23_output_disable(uint32_t spi_periph);
+/* enable SPI quad wire mode */
+void spi_quad_enable(uint32_t spi_periph);
+/* disable SPI quad wire mode */
+void spi_quad_disable(uint32_t spi_periph);
+/* enable SPI quad wire mode write */
+void spi_quad_write_enable(uint32_t spi_periph);
+/* enable SPI quad wire mode read */
+void spi_quad_read_enable(uint32_t spi_periph);
+/* enable SPI quad wire mode SPI_IO2 and SPI_IO3 pin output */
+void spi_quad_io23_output_enable(uint32_t spi_periph);
+/* disable SPI quad wire mode SPI_IO2 and SPI_IO3 pin output */
+void spi_quad_io23_output_disable(uint32_t spi_periph);
 
 /* flag and interrupt functions */
 /* enable SPI and I2S interrupt */

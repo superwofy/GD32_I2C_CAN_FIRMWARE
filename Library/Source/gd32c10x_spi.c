@@ -4,10 +4,12 @@
 
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
     \version 2021-05-31, V1.0.1, firmware for GD32C10x
+    \version 2021-12-31, V1.0.2, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2021, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -38,8 +40,8 @@ OF SUCH DAMAGE.
 #define SPI_ERROR_HANDLE(s)             do{}while(1)
 
 /* SPI/I2S parameter initialization mask */
-#define SPI_INIT_MASK                   ((uint32_t)0x00003040U)  /*!< SPI parameter initialization mask */
-#define I2S_INIT_MASK                   ((uint32_t)0x0000F047U)  /*!< I2S parameter initialization mask */
+#define SPI_INIT_MASK                   ((uint32_t)0x00003040U)  /* SPI parameter initialization mask */
+#define I2S_INIT_MASK                   ((uint32_t)0x0000F047U)  /* I2S parameter initialization mask */
 
 /* I2S clock source selection, multiplication and division mask */
 #define I2S1_CLOCK_SEL                  ((uint32_t)0x00020000U)  /* I2S1 clock source selection */
@@ -175,7 +177,7 @@ void spi_disable(uint32_t spi_periph)
       \arg        I2S_MODE_MASTERRX: I2S master receive mode
     \param[in]  standard: I2S standard
                 only one parameter can be selected which is shown as below:
-      \arg        I2S_STD_PHILLIPS: I2S phillips standard
+      \arg        I2S_STD_PHILLIPS: I2S Phillips standard
       \arg        I2S_STD_MSB: I2S MSB standard
       \arg        I2S_STD_LSB: I2S LSB standard
       \arg        I2S_STD_PCMSHORT: I2S PCM short standard
@@ -602,67 +604,67 @@ void spi_nssp_mode_disable(uint32_t spi_periph)
 }
 
 /*!
-    \brief      enable quad wire SPI
+    \brief      enable SPI quad wire mode
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_enable(uint32_t spi_periph)
+void spi_quad_enable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) |= (uint32_t)SPI_QCTL_QMOD;
 }
 
 /*!
-    \brief      disable quad wire SPI 
+    \brief      disable SPI quad wire mode
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_disable(uint32_t spi_periph)
+void spi_quad_disable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) &= (uint32_t)(~SPI_QCTL_QMOD);
 }
 
 /*!
-    \brief      enable quad wire SPI write 
+    \brief      enable SPI quad wire mode write
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_write_enable(uint32_t spi_periph)
+void spi_quad_write_enable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) &= (uint32_t)(~SPI_QCTL_QRD);
 }
 
 /*!
-    \brief      enable quad wire SPI read 
+    \brief      enable SPI quad wire mode read 
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_read_enable(uint32_t spi_periph)
+void spi_quad_read_enable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) |= (uint32_t)SPI_QCTL_QRD;
 }
 
 /*!
-    \brief      enable SPI_IO2 and SPI_IO3 pin output 
+    \brief      enable SPI quad wire mode SPI_IO2 and SPI_IO3 pin output
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_io23_output_enable(uint32_t spi_periph)
+void spi_quad_io23_output_enable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) |= (uint32_t)SPI_QCTL_IO23_DRV;
 }
 
  /*!
-    \brief      disable SPI_IO2 and SPI_IO3 pin output 
+    \brief      disable SPI quad wire mode SPI_IO2 and SPI_IO3 pin output
     \param[in]  spi_periph: SPIx(only x=0)
     \param[out] none
     \retval     none
 */
-void qspi_io23_output_disable(uint32_t spi_periph)
+void spi_quad_io23_output_disable(uint32_t spi_periph)
 {
     SPI_QCTL(spi_periph) &= (uint32_t)(~SPI_QCTL_IO23_DRV);
 }

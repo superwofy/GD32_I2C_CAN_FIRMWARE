@@ -85,7 +85,7 @@ int digitalRead(int pin);
 
 
 // SERIAL
-void Serial_begin(unsigned long baud);      // USART 0
+void Serial_begin();      // USART 0
 int Serial_available(void);
 unsigned char Serial_read(void);
 void Serial_write(unsigned char c);

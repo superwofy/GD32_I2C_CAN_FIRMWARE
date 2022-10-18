@@ -3,10 +3,11 @@
     \brief   DMA driver
     
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -375,7 +376,7 @@ void dma_priority_config(uint32_t dma_periph, dma_channel_enum channelx, uint32_
     
     /* acquire DMA_CHxCTL register */
     ctl = DMA_CHCTL(dma_periph, channelx);
-    /* assign regiser */
+    /* assign register */
     ctl &= ~DMA_CHXCTL_PRIO;
     ctl |= priority;
     DMA_CHCTL(dma_periph, channelx) = ctl;
@@ -437,14 +438,14 @@ void dma_periph_width_config(uint32_t dma_periph, dma_channel_enum channelx, uin
     
     /* acquire DMA_CHxCTL register */
     ctl = DMA_CHCTL(dma_periph, channelx);
-    /* assign regiser */
+    /* assign register */
     ctl &= ~DMA_CHXCTL_PWIDTH;
     ctl |= pwidth;
     DMA_CHCTL(dma_periph, channelx) = ctl;
 }
 
 /*!
-    \brief      enable next address increasement algorithm of memory  
+    \brief      enable next address increment algorithm of memory  
     \param[in]  dma_periph: DMAx(x=0,1)
       \arg        DMAx(x=0,1)
     \param[in]  channelx: specified DMA channel
@@ -463,7 +464,7 @@ void dma_memory_increase_enable(uint32_t dma_periph, dma_channel_enum channelx)
 }
 
 /*!
-    \brief      disable next address increasement algorithm of memory  
+    \brief      disable next address increment algorithm of memory  
     \param[in]  dma_periph: DMAx(x=0,1)
       \arg        DMAx(x=0,1)
     \param[in]  channelx: specified DMA channel
@@ -482,7 +483,7 @@ void dma_memory_increase_disable(uint32_t dma_periph, dma_channel_enum channelx)
 }
 
 /*!
-    \brief      enable next address increasement algorithm of peripheral
+    \brief      enable next address increment algorithm of peripheral
     \param[in]  dma_periph: DMAx(x=0,1)
       \arg        DMAx(x=0,1)
     \param[in]  channelx: specified DMA channel
@@ -501,7 +502,7 @@ void dma_periph_increase_enable(uint32_t dma_periph, dma_channel_enum channelx)
 }
 
 /*!
-    \brief      disable next address increasement algorithm of peripheral 
+    \brief      disable next address increment algorithm of peripheral 
     \param[in]  dma_periph: DMAx(x=0,1)
       \arg        DMAx(x=0,1)
     \param[in]  channelx: specified DMA channel
@@ -671,7 +672,7 @@ void dma_interrupt_flag_clear(uint32_t dma_periph, dma_channel_enum channelx, ui
     \param[in]  channelx: specified DMA channel 
                 only one parameter can be selected which is shown as below:
       \arg        DMA0: DMA_CHx(x=0..6), DMA1: DMA_CHx(x=0..4)
-    \param[in]  source: specify which interrupt to enbale
+    \param[in]  source: specify which interrupt to enable
                 one or more parameters can be selected which are shown as below
       \arg        DMA_INT_FTF: channel full transfer finish interrupt
       \arg        DMA_INT_HTF: channel half transfer finish interrupt
@@ -695,7 +696,7 @@ void dma_interrupt_enable(uint32_t dma_periph, dma_channel_enum channelx, uint32
     \param[in]  channelx: specified DMA channel 
                 only one parameter can be selected which is shown as below:
       \arg        DMA0: DMA_CHx(x=0..6), DMA1: DMA_CHx(x=0..4)
-    \param[in]  source: specify which interrupt to disbale
+    \param[in]  source: specify which interrupt to disable
                 one or more parameters can be selected which are shown as below
       \arg        DMA_INT_FTF: channel full transfer finish interrupt
       \arg        DMA_INT_HTF: channel half transfer finish interrupt

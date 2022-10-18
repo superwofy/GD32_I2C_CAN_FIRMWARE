@@ -3,10 +3,11 @@
     \brief   USART driver
     
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -278,7 +279,7 @@ void usart_data_first_config(uint32_t usart_periph, uint32_t msbf)
 */
 void usart_invert_config(uint32_t usart_periph, usart_invert_enum invertpara)
 {
-    /* inverted or not the specified siginal */ 
+    /* inverted or not the specified signal */ 
     switch(invertpara){
     case USART_DINV_ENABLE:
         /* data bit level inversion */

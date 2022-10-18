@@ -4,10 +4,11 @@
     
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
     \version 2021-05-31, V1.0.1, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2021, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -55,7 +56,6 @@ OF SUCH DAMAGE.
 #define RCU_CFG1_PLL1MF_OFFSET      ((uint32_t)8U)
 /* RCU PREDV1 division factor offset*/
 #define RCU_CFG1_PREDV1_OFFSET      ((uint32_t)4U)
-
 
 /*!
     \brief      deinitialize the RCU
@@ -670,8 +670,8 @@ void rcu_ck48m_clock_config(uint32_t ck48m_clock_source)
 }
 
 /*!
-    \brief      get the clock stabilization and periphral reset flags
-    \param[in]  flag: the clock stabilization and periphral reset flags, refer to rcu_flag_enum
+    \brief      get the clock stabilization and peripheral reset flags
+    \param[in]  flag: the clock stabilization and peripheral reset flags, refer to rcu_flag_enum
                 only one parameter can be selected which is shown as below:
       \arg        RCU_FLAG_IRC8MSTB: IRC8M stabilization flag
       \arg        RCU_FLAG_HXTALSTB: HXTAL stabilization flag

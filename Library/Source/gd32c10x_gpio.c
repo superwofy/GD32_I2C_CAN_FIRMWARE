@@ -3,10 +3,11 @@
     \brief   GPIO driver
     
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -333,10 +334,8 @@ uint16_t gpio_output_port_get(uint32_t gpio_periph)
       \arg        GPIO_CAN0_FULL_REMAP: CAN0 full remapping
       \arg        GPIO_PD01_REMAP: PD01 remapping
       \arg        GPIO_TIMER4CH3_IREMAP: TIMER4 channel3 internal remapping
-      \arg        GPIO_ADC0_ETRGINS_REMAP: ADC0 external trigger inserted conversion remapping
-      \arg        GPIO_ADC0_ETRGREG_REMAP: ADC0 external trigger regular conversion remapping
-      \arg        GPIO_ADC1_ETRGINS_REMAP: ADC1 external trigger inserted conversion remapping
-      \arg        GPIO_ADC1_ETRGREG_REMAP: ADC1 external trigger regular conversion remapping
+      \arg        GPIO_ADC0_ETRGRT_REMAP: ADC0 external trigger routine conversion remapping
+      \arg        GPIO_ADC1_ETRGRT_REMAP: ADC1 external trigger routine conversion remapping
       \arg        GPIO_CAN1_REMAP: CAN1 remapping
       \arg        GPIO_SWJ_NONJTRST_REMAP: full SWJ(JTAG-DP + SW-DP),but without NJTRST
       \arg        GPIO_SWJ_SWDPENABLE_REMAP: JTAG-DP disabled and SW-DP enabled

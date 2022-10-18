@@ -3,10 +3,11 @@
     \brief   definitions for GD32C10X_EVAL's leds, keys and COM ports hardware resources
     
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -141,7 +142,7 @@ void gd_eval_key_init(key_typedef_enum key_num, keymode_typedef_enum key_mode);
 /* return the selected key state */
 uint8_t gd_eval_key_state_get(key_typedef_enum key);
 /* configure COM port */
-void gd_eval_com_init(uint32_t com, unsigned long baud);
+void gd_eval_com_init(uint32_t com);
 
 #ifdef cplusplus
 }

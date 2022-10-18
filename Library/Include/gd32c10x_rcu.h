@@ -3,10 +3,11 @@
     \brief   definitions for the RCU
     
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2020, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -356,7 +357,6 @@ typedef enum
     RCU_TIMER8    = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 19U),                 /*!< TIMER8 clock */
     RCU_TIMER9    = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 20U),                 /*!< TIMER9 clock */
     RCU_TIMER10   = RCU_REGIDX_BIT(APB2EN_REG_OFFSET, 21U),                 /*!< TIMER10 clock */
-
 }rcu_periph_enum;
 
 /* peripheral clock enable when sleep mode*/
@@ -416,7 +416,6 @@ typedef enum
     RCU_TIMER8RST    = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 19U),             /*!< TIMER8 clock reset */
     RCU_TIMER9RST    = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 20U),             /*!< TIMER9 clock reset */
     RCU_TIMER10RST   = RCU_REGIDX_BIT(APB2RST_REG_OFFSET, 21U),             /*!< TIMER10 clock reset */
-
 }rcu_periph_reset_enum;
 
 /* clock stabilization and peripheral reset flags */
@@ -724,6 +723,7 @@ typedef enum
 #define RCU_CK48MSRC_IRC48M             RCU_ADDCTL_CK48MSEL                 /*!< select IRC48M clock */
 
 /* function declarations */
+/* peripherals clock configure functions */
 /* deinitialize the RCU */
 void rcu_deinit(void);
 /* enable the peripherals clock */
@@ -743,6 +743,7 @@ void rcu_bkp_reset_enable(void);
 /* disable the BKP domain reset */
 void rcu_bkp_reset_disable(void);
 
+/* system and peripherals clock source, system reset configure functions */
 /* configure the system clock source */
 void rcu_system_clock_source_config(uint32_t ck_sys);
 /* get the system clock source */
@@ -781,20 +782,7 @@ void rcu_i2s2_clock_config(uint32_t i2s_clock_source);
 /* configure the CK48M clock selection */
 void rcu_ck48m_clock_config(uint32_t ck48m_clock_source);
 
-
-/* get the clock stabilization and periphral reset flags */
-FlagStatus rcu_flag_get(rcu_flag_enum flag);
-/* clear the reset flag */
-void rcu_all_reset_flag_clear(void);
-/* get the clock stabilization interrupt and ckm flags */
-FlagStatus rcu_interrupt_flag_get(rcu_int_flag_enum int_flag);
-/* clear the interrupt flags */
-void rcu_interrupt_flag_clear(rcu_int_flag_clear_enum int_flag_clear);
-/* enable the stabilization interrupt */
-void rcu_interrupt_enable(rcu_int_enum stab_int);
-/* disable the stabilization interrupt */
-void rcu_interrupt_disable(rcu_int_enum stab_int);
-
+/* LXTAL, IRC8M, PLL and other oscillator configure functions */
 /* configure the LXTAL drive capability */
 void rcu_lxtal_drive_capability_config(uint32_t lxtal_dricap);
 /* wait for oscillator stabilization flags is SET or oscillator startup is timeout */
@@ -807,18 +795,33 @@ void rcu_osci_off(rcu_osci_type_enum osci);
 void rcu_osci_bypass_mode_enable(rcu_osci_type_enum osci);
 /* disable the oscillator bypass mode, HXTALEN or LXTALEN must be reset before it */
 void rcu_osci_bypass_mode_disable(rcu_osci_type_enum osci);
+
+/* clock monitor configure functions */
 /* enable the HXTAL clock monitor */
 void rcu_hxtal_clock_monitor_enable(void);
 /* disable the HXTAL clock monitor */
 void rcu_hxtal_clock_monitor_disable(void);
 
+/* voltage configure and clock frequency get functions */
 /* set the IRC8M adjust value */
 void rcu_irc8m_adjust_value_set(uint32_t irc8m_adjval);
-
 /* set the deep sleep mode voltage */
 void rcu_deepsleep_voltage_set(uint32_t dsvol);
-
 /* get the system clock, bus and peripheral clock frequency */
 uint32_t rcu_clock_freq_get(rcu_clock_freq_enum clock);
+
+/* flag & interrupt functions */
+/* get the clock stabilization and periphral reset flags */
+FlagStatus rcu_flag_get(rcu_flag_enum flag);
+/* clear the reset flag */
+void rcu_all_reset_flag_clear(void);
+/* get the clock stabilization interrupt and ckm flags */
+FlagStatus rcu_interrupt_flag_get(rcu_int_flag_enum int_flag);
+/* clear the interrupt flags */
+void rcu_interrupt_flag_clear(rcu_int_flag_clear_enum int_flag_clear);
+/* enable the stabilization interrupt */
+void rcu_interrupt_enable(rcu_int_enum stab_int);
+/* disable the stabilization interrupt */
+void rcu_interrupt_disable(rcu_int_enum stab_int);
 
 #endif /* GD32C10X_RCU_H */

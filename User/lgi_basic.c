@@ -102,10 +102,10 @@ int digitalRead(int pin)
 // ----------------------------------------------------------
 // --------------------------SERIAL--------------------------
 // ----------------------------------------------------------
-void Serial_begin(unsigned long baud)      																																												// USART 0
+void Serial_begin()      																																												// USART 0
 {
     nvic_irq_enable(USART0_IRQn, 2, 2);
-    gd_eval_com_init(EVAL_COM0, baud);
+    gd_eval_com_init(EVAL_COM0);
     usart_interrupt_enable(USART0, USART_INT_RBNE);
 }
 

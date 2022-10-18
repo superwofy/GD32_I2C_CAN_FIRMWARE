@@ -4,10 +4,11 @@
 
     \version 2020-12-31, V1.0.0, firmware for GD32C10x
     \version 2021-05-31, V1.0.1, firmware for GD32C10x
+    \version 2022-06-30, V1.1.0, firmware for GD32C10x
 */
 
 /*
-    Copyright (c) 2021, GigaDevice Semiconductor Inc.
+    Copyright (c) 2022, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -497,11 +498,11 @@ void can_filter_init(can_filter_parameter_struct* can_filter_parameter_init)
 
 /*!
     \brief      CAN filter mask mode initialization
-    \param[in]  id: extended(29-bits) or standard(11-bits) identifier
+    \param[in]  id: standard(11-bits) or extended(29-bits) identifier
       \arg        0x00000000 - 0x1FFFFFFF
-    \param[in]  mask: extended(29-bits) or standard(11-bits) identifier mask
+    \param[in]  mask: standard(11-bits) or extended(29-bits) identifier mask
       \arg        0x00000000 - 0x1FFFFFFF
-    \param[in]  format_fifo: format and fifo states
+    \param[in]  format_fifo: format and FIFO states
                 only one parameter can be selected which is shown as below:
       \arg        CAN_STANDARD_FIFO0
       \arg        CAN_STANDARD_FIFO1
