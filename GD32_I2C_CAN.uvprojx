@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>Target 1</TargetName>
+      <TargetName>GD32C_CAN</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>GD32C10X_MD, __FPU_PRESENT</Define>
               <Undefine></Undefine>
-              <IncludePath>.\CMSIS;.\Library\Include;.\User;.\CMSIS\GD\GD32C10x\Include;.\Utilities</IncludePath>
+              <IncludePath>.\CMSIS;.\GD32C10x-Firmware\Include;.\Application;.\CMSIS\GD\GD32C10x\Include;.\GD32C10x-Peripherals;.\GD32C10x-EVAL</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -392,157 +392,177 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Startup</GroupName>
-          <Files>
-            <File>
-              <FileName>startup_gd32c10x.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\Startup\startup_gd32c10x.s</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>User</GroupName>
+          <GroupName>Application</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\User\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>gd32c10x_eval.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Utilities\gd32c10x_eval.c</FilePath>
+              <FilePath>.\Application\main.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_it.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\User\gd32c10x_it.c</FilePath>
+              <FilePath>.\Application\gd32c10x_it.c</FilePath>
             </File>
             <File>
               <FileName>systick.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\User\systick.c</FilePath>
+              <FilePath>.\Application\systick.c</FilePath>
             </File>
             <File>
               <FileName>lgi_basic.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\User\lgi_basic.c</FilePath>
+              <FilePath>.\Application\lgi_basic.c</FilePath>
+            </File>
+            <File>
+              <FileName>dual_dfs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\dual_dfs.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>GD-Firmware</GroupName>
+          <GroupName>GD32C10x-EVAL</GroupName>
+          <Files>
+            <File>
+              <FileName>gd32c10x_eval.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GD32C10x-EVAL\gd32c10x_eval.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>GD32C10x-Peripherals</GroupName>
+          <Files>
+            <File>
+              <FileName>i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GD32C10x-Peripherals\i2c.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>GD32C10x-Firmware</GroupName>
           <Files>
             <File>
               <FileName>gd32c10x_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_adc.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_adc.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_bkp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_bkp.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_bkp.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_can.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_can.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_can.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_crc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_crc.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_crc.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_ctc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_ctc.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_ctc.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_dac.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_dac.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_dac.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_dbg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_dbg.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_dbg.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_dma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_dma.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_dma.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_exmc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_exmc.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_exmc.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_exti.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_exti.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_fmc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_fmc.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_fmc.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_fwdgt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_fwdgt.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_fwdgt.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_gpio.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_gpio.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_i2c.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_i2c.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_i2c.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_misc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_misc.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_misc.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_pmu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_pmu.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_pmu.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_rcu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_rcu.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_rcu.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_rtc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_rtc.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_rtc.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_spi.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_spi.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_timer.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_timer.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_timer.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_usart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_usart.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_usart.c</FilePath>
             </File>
             <File>
               <FileName>gd32c10x_wwdgt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Library\Source\gd32c10x_wwdgt.c</FilePath>
+              <FilePath>.\GD32C10x-Firmware\Source\gd32c10x_wwdgt.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>GD32C10x-Startup</GroupName>
+          <Files>
+            <File>
+              <FileName>startup_gd32c10x.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\GD32C10x-Startup\startup_gd32c10x.s</FilePath>
             </File>
           </Files>
         </Group>

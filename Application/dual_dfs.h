@@ -2,11 +2,10 @@
 #define __DUAL_DFS_H__
 
 
-#define FILTER_COUNT								16
+#define FILTER_COUNT								22
 #define CANCONFIG_SIZE							8 + FILTER_COUNT * 10
 #define DEBUG												1
 #define CANFD_ENABLE								1
-#define I2C0_OWN_ADDRESS7						0x41																																													// Match with CANBED library
 #define MAX_CAN_RECV								8
 
 

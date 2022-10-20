@@ -36,6 +36,7 @@ OF SUCH DAMAGE.
 #include <stdio.h>
 #include "gd32c10x.h"
 #include "gd32c10x_eval.h"
+#include "i2c.h"
 #include "lgi_basic.h"
 #include "dual_dfs.h"
 
@@ -71,6 +72,7 @@ unsigned long char2long(unsigned char *str)
     return __t;
 }
 
+
 void long2char(unsigned long __t, unsigned char *str)
 {
     str[0] = (__t>>24)&0xff;
@@ -78,6 +80,7 @@ void long2char(unsigned long __t, unsigned char *str)
     str[2] = (__t>>8)&0xff;
     str[3] = (__t>>0)&0xff;
 }
+
 
 void can0SaveData()
 {
@@ -115,7 +118,6 @@ void can0SaveData()
 }
 
 
-
 void can1SaveData()
 {
     unsigned long id = 0;
@@ -149,18 +151,6 @@ void can1SaveData()
     if (NUM_CAN_GET1 > MAX_CAN_RECV) {
 			NUM_CAN_GET1 = MAX_CAN_RECV;
 		}
-}
-
-
-void i2c_config(void)
-{
-    //i2c_deinit(I2C0);
-    rcu_periph_clock_enable(RCU_I2C0);
-    gpio_init(GPIOB, GPIO_MODE_AF_OD, GPIO_OSPEED_50MHZ, GPIO_PIN_6 | GPIO_PIN_7);        																				// i2c gpio config, PB7/6 - SDA/SCL
-    i2c_clock_config(I2C0, 1000000, I2C_DTCY_2);																																									// Fast mode plus
-    i2c_mode_addr_config(I2C0, I2C_I2CMODE_ENABLE, I2C_ADDFORMAT_7BITS, I2C0_OWN_ADDRESS7);																				// Configure address
-    i2c_enable(I2C0);
-    i2c_ack_config(I2C0, I2C_ACK_ENABLE);
 }
 
 
@@ -466,23 +456,19 @@ int main(void)
 #if DEBUG
     Serial_begin();
 #endif
+	
+		/* I2C configure */
+		i2c_gpio_config();
+    i2c_config();
+	
+#if DEBUG
+		printf("\r\nI2C0 initialized.");
+    printf("\r\nThe speed is %d KHz.", I2C_SPEED);
+#endif
 
 		/* configure CAN */
     can_gpio_config();
 
-    /* I2C configure */
-    i2c_config();
-
-    /* initialize transmit message */
-    can_struct_para_init(CAN_TX_MESSAGE_STRUCT, &g_transmit_message);
-    g_transmit_message.tx_sfid = 0x55;
-    g_transmit_message.tx_efid = 0x55;
-    g_transmit_message.tx_ft = CAN_FT_DATA;
-    g_transmit_message.tx_ff = CAN_FF_STANDARD;
-    g_transmit_message.tx_dlen = 8;
-    g_transmit_message.fd_flag = 1;
-    g_transmit_message.fd_brs = 1;
-    g_transmit_message.fd_esi = 0;
     /* initialize receive message */
     can_struct_para_init(CAN_RX_MESSAGE_STRUCT, &g_receive_message0);
     can_struct_para_init(CAN_RX_MESSAGE_STRUCT, &g_receive_message1);
