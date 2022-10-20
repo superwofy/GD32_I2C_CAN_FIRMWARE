@@ -37,6 +37,7 @@ OF SUCH DAMAGE.
 #include "gd32c10x.h"
 #include "gd32c10x_eval.h"
 #include "i2c.h"
+#include "can.h"
 #include "lgi_basic.h"
 #include "dual_dfs.h"
 
@@ -154,29 +155,8 @@ void can1SaveData()
 }
 
 
-void can_gpio_config(void)
-{
-    /* enable CAN clock */
-    rcu_periph_clock_enable(RCU_CAN0);
-    rcu_periph_clock_enable(RCU_CAN1);
-    rcu_periph_clock_enable(RCU_AF);
-
-		/* configure CAN0 GPIO */
-    gpio_init(GPIOA, GPIO_MODE_IPU, GPIO_OSPEED_50MHZ, GPIO_PIN_11);    																													// CAN0 RX - PA11
-    gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_12);																														// CAN0 TX - PA12
-	
-    /* configure CAN1 GPIO */
-    gpio_init(GPIOB,GPIO_MODE_IPU, GPIO_OSPEED_50MHZ,GPIO_PIN_12);        																												// CAN1 RX - PB12
-    gpio_init(GPIOB,GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ,GPIO_PIN_13); 																															// CAN1 TX - PB13
-}
-
-
 void can_config0(unsigned char *str)
 {
-    unsigned long __mask = 0;
-    unsigned long __filt = 0;
-
-    int __ext = 0;
 	
     unsigned long __can20baud = char2long(&str[0]);
 		can_parameter_struct can_parameter;
@@ -224,9 +204,9 @@ void can_config0(unsigned char *str)
 
     for (int i = 0; i < FILTER_COUNT; i++) {
         if (str[8 + i * 10]) {
-            __mask = char2long(&str[i * 10 + 10]);
-            __filt = char2long(&str[i * 10 + 14]);
-            __ext = str[i * 10 + 9] ? CAN_EXTENDED_FIFO0 : CAN_STANDARD_FIFO0;
+            unsigned long __mask = char2long(&str[i * 10 + 10]);
+            unsigned long __filt = char2long(&str[i * 10 + 14]);
+            int __ext = str[i * 10 + 9] ? CAN_EXTENDED_FIFO0 : CAN_STANDARD_FIFO0;
             can_filter_mask_mode_init(__filt, __mask, __ext, i);
         }
     }
@@ -240,10 +220,6 @@ void can_config0(unsigned char *str)
 
 void can_config1(unsigned char *str)
 {
-    unsigned long __mask = 0;
-    unsigned long __filt = 0;
-
-    int __ext = 0;
     unsigned long __can20baud = char2long(&str[0]);
 		can_parameter_struct can_parameter;
 
@@ -286,12 +262,12 @@ void can_config1(unsigned char *str)
     /* initialize filter */
     can1_filter_start_bank(14);
 
-    for (int i = 0; i < FILTER_COUNT; i++) {
+    for (int i = 14; i < (FILTER_COUNT * 2); i++) {
         if (str[8 + i * 10]) {
-            __mask = char2long(&str[i * 10 + 10]);
-            __filt = char2long(&str[i * 10 + 14]);
-            __ext = str[i * 10 + 9] ? CAN_EXTENDED_FIFO0 : CAN_STANDARD_FIFO0;
-            can_filter_mask_mode_init(__filt, __mask, __ext, 15 + i);
+            unsigned long __mask = char2long(&str[i * 10 + 10]);
+            unsigned long __filt = char2long(&str[i * 10 + 14]);
+            int __ext = str[i * 10 + 9] ? CAN_EXTENDED_FIFO0 : CAN_STANDARD_FIFO0;
+            can_filter_mask_mode_init(__filt, __mask, __ext, i);																																	// Continue from where CAN0 ended.
         }
     }
 
@@ -468,6 +444,11 @@ int main(void)
 
 		/* configure CAN */
     can_gpio_config();
+	
+#if !CANFD_ENABLE
+		can_fd_function_disable(CAN0);
+		can_fd_function_disable(CAN1);
+#endif
 
     /* initialize receive message */
     can_struct_para_init(CAN_RX_MESSAGE_STRUCT, &g_receive_message0);

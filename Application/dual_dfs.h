@@ -2,7 +2,7 @@
 #define __DUAL_DFS_H__
 
 
-#define FILTER_COUNT								22
+#define FILTER_COUNT								14																																														// Per peripheral. I.e 14 for CAN0, 14 for CAN1.
 #define CANCONFIG_SIZE							8 + FILTER_COUNT * 10
 #define DEBUG												1
 #define CANFD_ENABLE								1
