@@ -50,6 +50,9 @@ int NUM_CAN_GET1 = 0;
 int index_can_get0 = 0;
 int index_can_get1 = 0;
 
+int can0_fd_disabled = 0;
+int can1_fd_disabled = 0;
+
 unsigned char CAN_DATA_CAN0[MAX_CAN_RECV][100];
 unsigned char CAN_DATA_CAN1[MAX_CAN_RECV][100];
 
@@ -59,19 +62,6 @@ unsigned char can1config[CANCONFIG_SIZE];
 can_receive_message_struct g_receive_message0;
 can_receive_message_struct g_receive_message1;
 can_trasnmit_message_struct g_transmit_message;
-
-
-unsigned long char2long(unsigned char *str)
-{
-    unsigned long __t = str[0];
-    __t <<= 8;
-    __t |= str[1];
-    __t <<= 8;
-    __t |= str[2];
-    __t <<= 8;
-    __t |= str[3];
-    return __t;
-}
 
 
 void long2char(unsigned long __t, unsigned char *str)
@@ -155,130 +145,7 @@ void can1SaveData()
 }
 
 
-void can_config0(unsigned char *str)
-{
-	
-    unsigned long __can20baud = char2long(&str[0]);
-		can_parameter_struct can_parameter;
-
-    can_struct_para_init(CAN_INIT_STRUCT, &can_parameter);
-    /* initialize CAN register */
-    can_deinit(CAN0);
-
-    /* initialize CAN parameters */
-    can_parameter.time_triggered = DISABLE;
-    can_parameter.auto_bus_off_recovery = ENABLE;
-    can_parameter.auto_wake_up = DISABLE;
-    can_parameter.auto_retrans = ENABLE;
-    can_parameter.rec_fifo_overwrite = ENABLE;
-    can_parameter.trans_fifo_order = ENABLE;
-    can_parameter.working_mode = CAN_NORMAL_MODE;
-    /* initialize CAN */
-    can_init(CAN0, &can_parameter);
-
-    /* config CAN0 baud rate */
-    can_frequency_set(CAN0, __can20baud);
-
-#if CANFD_ENABLE
-		unsigned long __canfdbaud = char2long(&str[4]);
-		can_fdframe_struct can_fd_parameter;
-    can_fd_tdc_struct can_fd_tdc_parameter;
-
-    can_struct_para_init(CAN_FD_FRAME_STRUCT, &can_fd_parameter);
-    can_fd_parameter.fd_frame = ENABLE;
-    can_fd_parameter.excp_event_detect = ENABLE;
-    can_fd_parameter.delay_compensation = ENABLE;
-    can_fd_tdc_parameter.tdc_filter = 0x04;
-    can_fd_tdc_parameter.tdc_mode = CAN_TDCMOD_CALC_AND_OFFSET;
-    can_fd_tdc_parameter.tdc_offset = 0x04;
-    can_fd_parameter.p_delay_compensation = &can_fd_tdc_parameter;
-    can_fd_parameter.iso_bosch = CAN_FDMOD_ISO;
-    can_fd_parameter.esi_mode = CAN_ESIMOD_HARDWARE;
-		
-    can_fd_init(CAN0, &can_fd_parameter);
-    can_fd_frequency_set(CAN0, __canfdbaud);
-#endif
-
-    /* initialize filter */
-    can1_filter_start_bank(14);
-
-    for (int i = 0; i < FILTER_COUNT; i++) {
-        if (str[8 + i * 10]) {
-            unsigned long __mask = char2long(&str[i * 10 + 10]);
-            unsigned long __filt = char2long(&str[i * 10 + 14]);
-            int __ext = str[i * 10 + 9] ? CAN_EXTENDED_FIFO0 : CAN_STANDARD_FIFO0;
-            can_filter_mask_mode_init(__filt, __mask, __ext, i);
-        }
-    }
-
-    /* configure CAN0 NVIC */
-    nvic_irq_enable(CAN0_RX0_IRQn, 0, 0);
-    /* enable can receive FIFO0 not empty interrupt */
-    can_interrupt_enable(CAN0, CAN_INTEN_RFNEIE0);
-}
-
-
-void can_config1(unsigned char *str)
-{
-    unsigned long __can20baud = char2long(&str[0]);
-		can_parameter_struct can_parameter;
-
-    can_struct_para_init(CAN_INIT_STRUCT, &can_parameter);
-    /* initialize CAN register */
-    can_deinit(CAN1);
-
-    /* initialize CAN parameters */
-    can_parameter.time_triggered = DISABLE;
-    can_parameter.auto_bus_off_recovery = ENABLE;
-    can_parameter.auto_wake_up = DISABLE;
-    can_parameter.auto_retrans = ENABLE;
-    can_parameter.rec_fifo_overwrite = ENABLE;
-    can_parameter.trans_fifo_order = ENABLE;
-    can_parameter.working_mode = CAN_NORMAL_MODE;
-
-		can_init(CAN1, &can_parameter);
-    can_frequency_set(CAN1, __can20baud);
-
-#if CANFD_ENABLE
-		unsigned long __canfdbaud = char2long(&str[4]);
-		can_fdframe_struct can_fd_parameter;
-    can_fd_tdc_struct can_fd_tdc_parameter;
-
-    can_struct_para_init(CAN_FD_FRAME_STRUCT, &can_fd_parameter);
-    can_fd_parameter.fd_frame = ENABLE;
-    can_fd_parameter.excp_event_detect = ENABLE;
-    can_fd_parameter.delay_compensation = ENABLE;
-    can_fd_tdc_parameter.tdc_filter = 0x04;
-    can_fd_tdc_parameter.tdc_mode = CAN_TDCMOD_CALC_AND_OFFSET;
-    can_fd_tdc_parameter.tdc_offset = 0x04;
-    can_fd_parameter.p_delay_compensation = &can_fd_tdc_parameter;
-    can_fd_parameter.iso_bosch = CAN_FDMOD_ISO;
-    can_fd_parameter.esi_mode = CAN_ESIMOD_HARDWARE;
-    can_fd_init(CAN1, &can_fd_parameter);
-
-    can_fd_frequency_set(CAN1, __canfdbaud);
-#endif
-
-    /* initialize filter */
-    can1_filter_start_bank(14);
-
-    for (int i = 14; i < (FILTER_COUNT * 2); i++) {
-        if (str[8 + i * 10]) {
-            unsigned long __mask = char2long(&str[i * 10 + 10]);
-            unsigned long __filt = char2long(&str[i * 10 + 14]);
-            int __ext = str[i * 10 + 9] ? CAN_EXTENDED_FIFO0 : CAN_STANDARD_FIFO0;
-            can_filter_mask_mode_init(__filt, __mask, __ext, i);																																	// Continue from where CAN0 ended.
-        }
-    }
-
-    /* configure CAN1 NVIC */
-    nvic_irq_enable(CAN1_RX0_IRQn, 1, 0);
-    /* enable can receive FIFO0 not empty interrupt */
-    can_interrupt_enable(CAN1, CAN_INTEN_RFNEIE0);
-}
-
-
-int getI2CDta(unsigned char *dta)
+int geti2cDtaFromRP2040(unsigned char *dta)
 {
     int len = 0;
     unsigned long tout = 0;
@@ -334,7 +201,7 @@ int getI2CDta(unsigned char *dta)
 }
 
 
-int sendI2CDta(unsigned char *dta, int dlen)
+int sendi2cDtaFromRP2040(unsigned char *dta, int dlen)
 {
     unsigned long tout = 0;
     /* wait until ADDSEND bit is set */
@@ -394,7 +261,7 @@ int sendI2CDta(unsigned char *dta, int dlen)
 }
 
 
-void I2C_SendData(uint32_t can_periph, unsigned char *str)
+void CANX_Send_From_I2C(uint32_t can_periph, unsigned char *str)
 {
     unsigned long id = 0;
 
@@ -427,6 +294,7 @@ void I2C_SendData(uint32_t can_periph, unsigned char *str)
 int main(void)
 {
 		/* configure board */
+	  systick_config(); 
     LGI_Init();
 		
 #if DEBUG
@@ -442,49 +310,44 @@ int main(void)
     printf("\r\nThe speed is %d KHz.", I2C_SPEED);
 #endif
 
-		/* configure CAN */
+		/* CAN configure */
     can_gpio_config();
-	
-#if !CANFD_ENABLE
-		can_fd_function_disable(CAN0);
-		can_fd_function_disable(CAN1);
-#endif
 
     /* initialize receive message */
     can_struct_para_init(CAN_RX_MESSAGE_STRUCT, &g_receive_message0);
     can_struct_para_init(CAN_RX_MESSAGE_STRUCT, &g_receive_message1);
 
     int i = 0;
-    unsigned char i2cDta[CANCONFIG_SIZE], dtaSend[100] = {0};
+    unsigned char i2cDtaFromRP2040[CANCONFIG_SIZE], dtaSendToRP2040[100] = {0};
 
     while(1) {
-        int len = getI2CDta(i2cDta);
+        int len = geti2cDtaFromRP2040(i2cDtaFromRP2040);
         if (len) {
-            switch(i2cDta[0]) {
-                case REG_ADDR_SEND:
-									I2C_SendData(CAN0, i2cDta);
+            switch(i2cDtaFromRP2040[0]) {
+                case CAN0_SEND_MSG:
+									CANX_Send_From_I2C(CAN0, i2cDtaFromRP2040);
 									break;
 
-                case REG1_ADDR_SEND:
-									I2C_SendData(CAN1, i2cDta);
+                case CAN1_SEND_MSG:
+									CANX_Send_From_I2C(CAN1, i2cDtaFromRP2040);
 									break;
 
-                case REG_ADDR_RECV_NUM:
-									dtaSend[0] = NUM_CAN_GET0;
-									sendI2CDta(dtaSend, 1);
+                case CAN0_MSG_RECV_NUM:
+									dtaSendToRP2040[0] = NUM_CAN_GET0;
+									sendi2cDtaFromRP2040(dtaSendToRP2040, 1);
 									break;
 
-                case REG1_ADDR_RECV_NUM:
-									dtaSend[0] = NUM_CAN_GET1;
-									sendI2CDta(dtaSend, 1);
+                case CAN1_MSG_RECV_NUM:
+									dtaSendToRP2040[0] = NUM_CAN_GET1;
+									sendi2cDtaFromRP2040(dtaSendToRP2040, 1);
 									break;
 
-                case REG_ADDR_RECV0:
+                case CAN0_RECV_INFO:
 									if (NUM_CAN_GET0) {
 											for (i = 0; i < 8; i++) {
-													dtaSend[i] = CAN_DATA_CAN0[index_can_get0][i];
+													dtaSendToRP2040[i] = CAN_DATA_CAN0[index_can_get0][i];
 											}
-											sendI2CDta(dtaSend, 8);
+											sendi2cDtaFromRP2040(dtaSendToRP2040, 8);
 									}
 									break;
 
@@ -492,9 +355,9 @@ int main(void)
 									if (NUM_CAN_GET0) {
 											if (CAN_DATA_CAN0[index_can_get0][7] <= 32) {
 													for (i = 0; i<CAN_DATA_CAN0[index_can_get0][7]; i++) {
-															dtaSend[i] = CAN_DATA_CAN0[index_can_get0][8 + i];
+															dtaSendToRP2040[i] = CAN_DATA_CAN0[index_can_get0][8 + i];
 													}
-													sendI2CDta(dtaSend, CAN_DATA_CAN0[index_can_get0][7]);
+													sendi2cDtaFromRP2040(dtaSendToRP2040, CAN_DATA_CAN0[index_can_get0][7]);
 													index_can_get0--;
 													if(index_can_get0 < 0) {
 														index_can_get0 = 7;
@@ -503,9 +366,9 @@ int main(void)
 											}
 											else {
 													for (i = 0; i < 32; i++) {
-															dtaSend[i] = CAN_DATA_CAN0[index_can_get0][8 + i];
+															dtaSendToRP2040[i] = CAN_DATA_CAN0[index_can_get0][8 + i];
 													}
-													sendI2CDta(dtaSend, 32);
+													sendi2cDtaFromRP2040(dtaSendToRP2040, 32);
 											}
 									}
 									break;
@@ -513,10 +376,10 @@ int main(void)
                 case REG_ADDR_RECV2:
 									if (NUM_CAN_GET0 && (CAN_DATA_CAN0[index_can_get0][7] > 32)) {
 											for (i = 0; i < (CAN_DATA_CAN0[index_can_get0][7] - 32); i++) {
-													dtaSend[i] = CAN_DATA_CAN0[index_can_get0][40 + i];
+													dtaSendToRP2040[i] = CAN_DATA_CAN0[index_can_get0][40 + i];
 											}
 
-											sendI2CDta(dtaSend, CAN_DATA_CAN0[index_can_get0][7] - 32);
+											sendi2cDtaFromRP2040(dtaSendToRP2040, CAN_DATA_CAN0[index_can_get0][7] - 32);
 											index_can_get0--;
 											if (index_can_get0 < 0) {
 												index_can_get0 = 7;
@@ -525,12 +388,12 @@ int main(void)
 									}
 									break;
 
-                case REG1_ADDR_RECV0:
+                case CAN1_RECV_INFO:
 									if (NUM_CAN_GET1) {
 											for(i = 0; i < 8; i++) {
-													dtaSend[i] = CAN_DATA_CAN1[index_can_get1][i];
+													dtaSendToRP2040[i] = CAN_DATA_CAN1[index_can_get1][i];
 											}
-											sendI2CDta(dtaSend, 8);
+											sendi2cDtaFromRP2040(dtaSendToRP2040, 8);
 									}
 									break;
 
@@ -538,18 +401,18 @@ int main(void)
 									if (NUM_CAN_GET1) {
 											if (CAN_DATA_CAN1[index_can_get1][7] <= 32) {
 													for (i = 0; i<CAN_DATA_CAN1[index_can_get1][7]; i++) {
-															dtaSend[i] = CAN_DATA_CAN1[index_can_get1][8 + i];
+															dtaSendToRP2040[i] = CAN_DATA_CAN1[index_can_get1][8 + i];
 													}
-													sendI2CDta(dtaSend, CAN_DATA_CAN1[index_can_get1][7]);
+													sendi2cDtaFromRP2040(dtaSendToRP2040, CAN_DATA_CAN1[index_can_get1][7]);
 													index_can_get1--;
 													if(index_can_get1 < 0)index_can_get1 = 7;
 													NUM_CAN_GET1--;
 											}
 											else {
 													for (i = 0; i < 32; i++) {
-															dtaSend[i] = CAN_DATA_CAN1[index_can_get1][8 + i];
+															dtaSendToRP2040[i] = CAN_DATA_CAN1[index_can_get1][8 + i];
 													}
-													sendI2CDta(dtaSend, 32);
+													sendi2cDtaFromRP2040(dtaSendToRP2040, 32);
 											}
 									}
 									break;
@@ -557,40 +420,48 @@ int main(void)
                 case REG1_ADDR_RECV2:
 									if (NUM_CAN_GET1 && (CAN_DATA_CAN1[index_can_get1][7] > 32)) {
 											for (i = 0; i < (CAN_DATA_CAN1[index_can_get1][7] - 32); i++) {
-													dtaSend[i] = CAN_DATA_CAN1[index_can_get1][40 + i];
+													dtaSendToRP2040[i] = CAN_DATA_CAN1[index_can_get1][40 + i];
 											}
-											sendI2CDta(dtaSend, CAN_DATA_CAN1[index_can_get1][7] - 32);
+											sendi2cDtaFromRP2040(dtaSendToRP2040, CAN_DATA_CAN1[index_can_get1][7] - 32);
 											index_can_get1--;
 											if(index_can_get1 < 0)index_can_get1 = 7;
 											NUM_CAN_GET1--;
 									}
 									break;
-
-                case REG_ADDR_CONFIG:
-									memcpy(can0config, &i2cDta[1], CANCONFIG_SIZE);
-									can_config0(can0config);
-									can_config1(can1config);
-									break;
-
-                case REG1_ADDR_CONFIG:
-									memcpy(can1config, &i2cDta[1], CANCONFIG_SIZE);
-									can_config0(can0config);
-									can_config1(can1config);
+								
+								case CAN0_DISABLE_FD:
+									can_fd_function_disable(CAN0);
+									can0_fd_disabled = 1;
 									break;
 								
-								case REG_ADDR_SLEEP:
+								case CAN1_DISABLE_FD:
+									can_fd_function_disable(CAN1);
+									can1_fd_disabled = 1;
+									break;
+								
+                case CAN0_CONFIG:
+									memcpy(can0config, &i2cDtaFromRP2040[1], CANCONFIG_SIZE);
+									can_param_config(CAN0, can0config, can0_fd_disabled);
+									break;
+
+                case CAN1_CONFIG:
+									memcpy(can1config, &i2cDtaFromRP2040[1], CANCONFIG_SIZE);
+									can_param_config(CAN1, can1config, can1_fd_disabled);
+									break;
+								
+								case CAN0_SLEEP:
 									can_working_mode_set(CAN0, CAN_MODE_SLEEP);
 									break;
 								
-								case REG1_ADDR_SLEEP:
+								case CAN1_SLEEP:
 									can_working_mode_set(CAN1, CAN_MODE_SLEEP);
 									break;
 								
-								case REG_ADDR_WAKE:
+								case CAN0_WAKE:
 									can_working_mode_set(CAN0, CAN_MODE_NORMAL);
 									break;
 								
-								case REG1_ADDR_WAKE:
+								case CAN1_WAKE:
 									can_working_mode_set(CAN1, CAN_MODE_NORMAL);
 									break;
 

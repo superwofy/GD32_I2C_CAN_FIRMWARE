@@ -405,16 +405,6 @@
               <FilePath>.\Application\gd32c10x_it.c</FilePath>
             </File>
             <File>
-              <FileName>systick.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Application\systick.c</FilePath>
-            </File>
-            <File>
-              <FileName>lgi_basic.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Application\lgi_basic.c</FilePath>
-            </File>
-            <File>
               <FileName>dual_dfs.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Application\dual_dfs.h</FilePath>
@@ -443,6 +433,16 @@
               <FileName>can.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\GD32C10x-Peripherals\can.c</FilePath>
+            </File>
+            <File>
+              <FileName>systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GD32C10x-Peripherals\systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>lgi_basic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GD32C10x-Peripherals\lgi_basic.c</FilePath>
             </File>
           </Files>
         </Group>

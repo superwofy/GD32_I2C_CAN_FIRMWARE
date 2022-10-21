@@ -2,7 +2,7 @@
     \file    gd32c10x_it.c
     \brief   interrupt service routines
     
-    \version 2020-12-31, V1.0.0, firmware for GD32C10x
+    \version 2022-09-16, V1.0.0, demo for GD32C10x
 */
 
 /*
@@ -149,7 +149,7 @@ void CAN0_RX0_IRQHandler(void)
 {
     /* check the receive message */
     can_message_receive(CAN0, CAN_FIFO0, &g_receive_message0);
-		flgCAN0Get = 1;
+	flgCAN0Get = 1;
 }
 
 /*!
@@ -163,6 +163,6 @@ void CAN1_RX0_IRQHandler(void)
 {
     /* check the receive message */
     can_message_receive(CAN1, CAN_FIFO0, &g_receive_message1);
-		flgCAN1Get = 1;
+	flgCAN1Get = 1;
 }
 

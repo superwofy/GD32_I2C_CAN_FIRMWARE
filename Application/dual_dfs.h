@@ -2,34 +2,31 @@
 #define __DUAL_DFS_H__
 
 
-#define FILTER_COUNT								14																																														// Per peripheral. I.e 14 for CAN0, 14 for CAN1.
-#define CANCONFIG_SIZE							8 + FILTER_COUNT * 10
+#define CANCONFIG_SIZE							8 + 14 * 10																																										// 14 filters per peripheral. I.e 14 for CAN0, 14 for CAN1.
+#define UNDERCLOCK									1																																															// Sets MCU speed to 48MHz to save power.
 #define DEBUG												1
-#define CANFD_ENABLE								1
 #define MAX_CAN_RECV								8
 
 
-#define REG_ADDR_20_BAUD            0X02																																													// CAN0 functions
-#define REG_ADDR_FD_BAUD            0X03
-#define REG_ADDR_RECV_NUM           0X04
-#define REG_ADDR_SEND               0X05
-#define REG_ADDR_RECV0              0X06
+#define CAN0_MSG_RECV_NUM           0X04																																													// CAN0 functions
+#define CAN0_SEND_MSG               0X05
+#define CAN0_RECV_INFO              0X06																																													// id, rtr, ext, fd
 #define REG_ADDR_RECV1              0X07
 #define REG_ADDR_RECV2              0X08
-#define REG_ADDR_CONFIG							0X09
-#define REG_ADDR_SLEEP              0X0A
-#define REG_ADDR_WAKE			          0X0B
+#define CAN0_DISABLE_FD							0X09
+#define CAN0_CONFIG									0X0A
+#define CAN0_SLEEP              		0X0B
+#define CAN0_WAKE			          		0X0C
 
 
-#define REG1_ADDR_20_BAUD            0X12																																													// CAN1 functions
-#define REG1_ADDR_FD_BAUD            0X13
-#define REG1_ADDR_RECV_NUM           0X14
-#define REG1_ADDR_SEND               0X15
-#define REG1_ADDR_RECV0              0X16
-#define REG1_ADDR_RECV1              0X17
-#define REG1_ADDR_RECV2              0X18
-#define REG1_ADDR_CONFIG			 			 0X19
-#define REG1_ADDR_SLEEP              0X1A
-#define REG1_ADDR_WAKE		           0X1B
+#define CAN1_MSG_RECV_NUM           0X14																																													// CAN1 functions
+#define CAN1_SEND_MSG               0X15
+#define CAN1_RECV_INFO              0X16
+#define REG1_ADDR_RECV1             0X17
+#define REG1_ADDR_RECV2             0X18
+#define CAN1_DISABLE_FD							0X19
+#define CAN1_CONFIG			 						0X1A
+#define CAN1_SLEEP             			0X1B
+#define CAN1_WAKE		          			0X1C
 
 #endif

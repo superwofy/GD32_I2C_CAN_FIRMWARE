@@ -8,7 +8,6 @@ unsigned long cnt_millis = 0;
 
 void LGI_Init(void)
 {
-    systick_config();                   																																													// Initialization always, external 8M
     rcu_periph_clock_enable(RCU_GPIOA);																																														// RCU = Reset Control Unit. Activate GPIO clocks.
     rcu_periph_clock_enable(RCU_GPIOB);
     rcu_periph_clock_enable(RCU_GPIOC);

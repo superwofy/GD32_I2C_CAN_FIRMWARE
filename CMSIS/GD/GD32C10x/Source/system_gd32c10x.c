@@ -34,6 +34,7 @@ OF SUCH DAMAGE.
 /* This file refers the CMSIS standard, some adjustments are made according to GigaDevice chips */
 
 #include "gd32c10x.h"
+#include "dual_dfs.h"
 
 /* system frequency define */
 #define __IRC8M           (IRC8M_VALUE)            /* internal 8 MHz RC oscillator frequency */
@@ -53,7 +54,11 @@ OF SUCH DAMAGE.
 
 /* use HXTAL(CK_HXTAL = 8M) */
 //#define __SYSTEM_CLOCK_HXTAL                    (uint32_t)(__HXTAL)
-#define __SYSTEM_CLOCK_48M_PLL_HXTAL            (uint32_t)(48000000)
+#if UNDERCLOCK
+	#define __SYSTEM_CLOCK_48M_PLL_HXTAL            (uint32_t)(48000000)
+#else
+	#define __SYSTEM_CLOCK_120M_PLL_HXTAL           (uint32_t)(120000000)
+#endif
 //#define __SYSTEM_CLOCK_72M_PLL_HXTAL            (uint32_t)(72000000)
 //#define __SYSTEM_CLOCK_108M_PLL_HXTAL           (uint32_t)(108000000)
 //#define __SYSTEM_CLOCK_120M_PLL_HXTAL           (uint32_t)(120000000)
