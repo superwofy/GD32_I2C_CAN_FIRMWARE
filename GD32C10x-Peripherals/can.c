@@ -4,9 +4,11 @@
 
 */
 
+#include <stdio.h>
 #include "gd32c10x.h"
 #include "can.h"
-#include <stdio.h>
+#include "dual_dfs.h"
+
 
 /*!
     \brief      configure the GPIO ports
@@ -36,7 +38,7 @@ void can_gpio_config(void)
     \param[out] none
     \retval     none
 */
-void can_param_config(uint32_t can_periph, unsigned char *conf_str, int fd_disable) 
+void can_param_config(uint32_t can_periph, unsigned char *conf_str) 
 {
     unsigned long __can20baud = char2long(&conf_str[0]);
 		can_parameter_struct can_parameter;
@@ -55,29 +57,11 @@ void can_param_config(uint32_t can_periph, unsigned char *conf_str, int fd_disab
     can_parameter.working_mode = CAN_NORMAL_MODE;
     /* initialize CAN */
     can_init(can_periph, &can_parameter);
+	
+		can_fd_function_disable(can_periph);																																													// FD disable
 
     /* config can_periph baud rate */
     can_frequency_set(can_periph, __can20baud);
-
-		if (!fd_disable) {
-				unsigned long __canfdbaud = char2long(&conf_str[4]);
-				can_fdframe_struct can_fd_parameter;
-				can_fd_tdc_struct can_fd_tdc_parameter;
-
-				can_struct_para_init(CAN_FD_FRAME_STRUCT, &can_fd_parameter);
-				can_fd_parameter.fd_frame = ENABLE;
-				can_fd_parameter.excp_event_detect = ENABLE;
-				can_fd_parameter.delay_compensation = ENABLE;
-				can_fd_tdc_parameter.tdc_filter = 0x04;
-				can_fd_tdc_parameter.tdc_mode = CAN_TDCMOD_CALC_AND_OFFSET;
-				can_fd_tdc_parameter.tdc_offset = 0x04;
-				can_fd_parameter.p_delay_compensation = &can_fd_tdc_parameter;
-				can_fd_parameter.iso_bosch = CAN_FDMOD_ISO;
-				can_fd_parameter.esi_mode = CAN_ESIMOD_HARDWARE;
-				
-				can_fd_init(CAN0, &can_fd_parameter);
-				can_fd_frequency_set(CAN0, __canfdbaud);
-		}
 
     /* Set CAN1 filter offset start */
     can1_filter_start_bank(14);
@@ -91,13 +75,23 @@ void can_param_config(uint32_t can_periph, unsigned char *conf_str, int fd_disab
 					
 						if (CAN0 == can_periph) {
 								can_filter_mask_mode_init(__filt, __mask, __ext, i);
+#if DEBUG
+							printf("\r\nCAN0 filter %d initialized to %ld, mask set to %ld", i, __filt, __mask);
+#endif
 						}
 						else {
 								can_filter_mask_mode_init(__filt, __mask, __ext, i + 14);
+#if DEBUG
+								printf("\r\nCAN1 filter %d initialized to %ld, mask set to %ld", i, __filt, __mask);
+#endif
 						}
+				} 
+#if DEBUG
+				else {
+						printf("\r\n%s filter %d disabled", CAN0 == can_periph ? "CAN0" : "CAN1", i);
 				}
+#endif
 		}
-		
 		
 		if (CAN0 == can_periph) {
 				/* configure CAN0 NVIC */
@@ -111,7 +105,26 @@ void can_param_config(uint32_t can_periph, unsigned char *conf_str, int fd_disab
 				/* enable can receive FIFO0 not empty interrupt */
 				can_interrupt_enable(CAN1, CAN_INTEN_RFNEIE0);
 		}
-}	
+}
+
+
+void can_sleep_mode(uint32_t can_periph)
+{
+		can_working_mode_set(can_periph, CAN_MODE_SLEEP);
+#if DEBUG
+		printf("\r\%s sleeping.", CAN0 == can_periph ? "CAN0" : "CAN1");
+#endif
+}
+
+
+void can_awake(uint32_t can_periph)
+{
+		can_working_mode_set(can_periph, CAN_MODE_NORMAL);
+#if DEBUG
+		printf("\r\%s now awake.", CAN0 == can_periph ? "CAN0" : "CAN1");
+#endif
+}
+
 
 unsigned long char2long(unsigned char *str)
 {

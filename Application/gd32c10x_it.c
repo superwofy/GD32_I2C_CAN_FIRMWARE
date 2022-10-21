@@ -149,7 +149,7 @@ void CAN0_RX0_IRQHandler(void)
 {
     /* check the receive message */
     can_message_receive(CAN0, CAN_FIFO0, &g_receive_message0);
-	flgCAN0Get = 1;
+		flgCAN0Get = 1;
 }
 
 /*!
@@ -163,6 +163,6 @@ void CAN1_RX0_IRQHandler(void)
 {
     /* check the receive message */
     can_message_receive(CAN1, CAN_FIFO0, &g_receive_message1);
-	flgCAN1Get = 1;
+		flgCAN1Get = 1;
 }
 

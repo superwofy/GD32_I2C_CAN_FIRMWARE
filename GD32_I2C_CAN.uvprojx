@@ -412,6 +412,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Docs</GroupName>
+          <Files>
+            <File>
+              <FileName>Readme.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Docs\Readme.txt</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>GD32C10x-EVAL</GroupName>
           <Files>
             <File>

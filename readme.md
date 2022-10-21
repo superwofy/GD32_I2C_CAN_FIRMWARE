@@ -5,6 +5,8 @@ Forked from https://github.com/Longan-Labs/GD32_I2C_CAN_FIRMWARE/commit/c2d77288
 
 This code uses GD32E103/GD32C103 to realize the function of I2C to CAN Bus.
 
+See Docs/readme.txt for the working description.
+
 Since the GD32E103 and GD32C103 are pin to pin compatible, these codes will work for both chips.
 
 ## Development environment and tools
@@ -12,6 +14,15 @@ Since the GD32E103 and GD32C103 are pin to pin compatible, these codes will work
 This project is compiled with Keil 5.37, ARMCLANG >= 6.18.
 
 Simulation tools can use ST-Link or JLink.
+
+## Main differences from Longan implementation
+
+* I2C speed increased.
+* CAN communication is disabled until config is received from I2C.
+* Implemented all 28 CAN filters.
+* Implemented sleep modes for CAN.
+* Latest compiler and GD32 base firmware.
+* CAN-FD support dropped. Unfortunately I can't test this and removed it.
 
 ## Respository Contents
 
@@ -43,7 +54,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-
-## Contact us
-
-If you have any question, please feel free to contact [info@longan-labs.cc](info@longan-labs.cc)

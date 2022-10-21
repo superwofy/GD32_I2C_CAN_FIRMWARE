@@ -25,7 +25,13 @@
 void can_gpio_config(void);
 
 /* configure the CAN0/1 speed and parameters */
-void can_param_config(uint32_t can_periph, unsigned char *str, int fd_disable);
+void can_param_config(uint32_t can_periph, unsigned char *str);
+
+/* Put CAN0/1 in sleep mode */
+void can_sleep_mode(uint32_t can_periph);
+
+/* Wake CAN0/1 from sleep mode */
+void can_awake(uint32_t can_periph);
 
 unsigned long char2long(unsigned char *str);
 
