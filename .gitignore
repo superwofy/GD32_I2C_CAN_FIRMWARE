@@ -1,2 +1,4 @@
 Objects/
 *.user1
+JLinkLog.txt
+*.scvd
